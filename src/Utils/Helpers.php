@@ -15,6 +15,20 @@
 
 
 		/**
+		 * @param  bool
+		 * @param  string|NULL
+		 * @return void
+		 * @throws AssertException
+		 */
+		public static function assert($value, $msg = NULL)
+		{
+			if ($value !== TRUE) {
+				throw new AssertException($msg !== NULL ? $msg : "Assertion failed.");
+			}
+		}
+
+
+		/**
 		 * @param  string
 		 * @return string
 		 */

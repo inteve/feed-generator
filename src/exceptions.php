@@ -8,6 +8,11 @@
 	}
 
 
+	class AssertException extends FeedGeneratorException
+	{
+	}
+
+
 	class FileSystemException extends FeedGeneratorException
 	{
 	}
