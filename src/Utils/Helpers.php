@@ -4,6 +4,7 @@
 
 	use Inteve\FeedGenerator\AssertException;
 	use Inteve\FeedGenerator\IOutput;
+	use Inteve\FeedGenerator\StaticClassException;
 
 
 	class Helpers
