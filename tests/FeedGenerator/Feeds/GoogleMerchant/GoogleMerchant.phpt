@@ -1,0 +1,69 @@
+<?php
+
+use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantFeed;
+use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantItem;
+use Inteve\FeedGenerator\Outputs\MemoryOutput;
+use Nette\Utils\Json;
+use Tester\Assert;
+
+require __DIR__ . '/../../../bootstrap.php';
+
+
+test(function () {
+	$output = new MemoryOutput;
+	$feed = new GoogleMerchantFeed;
+	$feed->setTitle('Products');
+	$feed->setWebsiteUrl('http://www.example.com/');
+	$feed->setUpdated(new DateTime('2017-01-01 00:00:00 UTC'));
+	$feed->setAuthor('Example.com');
+
+	$item = GoogleMerchantItem::create()
+		->setId('001')
+		->setTitle('Product ABC')
+		->setDescription('Lorem ipsum dolor sit amet')
+		->setUrl('http://www.example.com/product-abc/')
+		->setImageUrl('http://www.example.com/images/product-abc.jpg')
+		->setPrice(5, 'USD')
+		->setGroupId('AB12345')
+		->setColor('red')
+		->setGender('male')
+		->setSize('XXL')
+		->setShipping(10, 'USD')
+		->setShippingLabel('Only FedEx');
+
+	$feed->setItems(array($item));
+	$feed->generate($output);
+
+	Assert::same('application/atom+xml', $feed->getContentType());
+
+	Assert::same(implode("\n", array(
+		'<?xml version="1.0" encoding="utf-8"?>',
+		'<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0">',
+		'<title>Products</title>',
+		'<link href="http://www.example.com/" rel="alternate" type="text/html" />',
+		'<updated>2017-01-01T00:00:00+00:00</updated>',
+		'<author>',
+		'<name>Example.com</name>',
+		'</author>',
+		'<entry>',
+		'<g:id>001</g:id>',
+		'<g:title>Product ABC</g:title>',
+		'<g:description>Lorem ipsum dolor sit amet</g:description>',
+		'<g:link>http://www.example.com/product-abc/</g:link>',
+		'<g:image_link>http://www.example.com/images/product-abc.jpg</g:image_link>',
+		'<g:availability>in stock</g:availability>',
+		'<g:price>5.00 USD</g:price>',
+		'<g:condition>new</g:condition>',
+		'<g:adult>no</g:adult>',
+		'<g:color>red</g:color>',
+		'<g:gender>male</g:gender>',
+		'<g:size>XXL</g:size>',
+		'<g:item_group_id>AB12345</g:item_group_id>',
+		'<g:shipping>10.00 USD</g:shipping>',
+		'<g:shipping_label>Only FedEx</g:shipping_label>',
+		'<g:identifier_exists>no</g:identifier_exists>',
+		'</entry>',
+		'</feed>',
+		'',
+	)), $output->getOutput());
+});
