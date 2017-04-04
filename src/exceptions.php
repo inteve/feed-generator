@@ -26,3 +26,8 @@
 	class OutputException extends FeedGeneratorException
 	{
 	}
+
+
+	class StaticClassException extends FeedGeneratorException
+	{
+	}
