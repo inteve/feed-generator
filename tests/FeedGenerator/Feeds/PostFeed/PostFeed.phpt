@@ -13,6 +13,7 @@ test(function () {
 	$output = new MemoryOutput;
 	$feed = new PostFeed;
 	$feed->generate($output);
+	Assert::same('application/json', $feed->getContentType());
 	Assert::same("[\n]\n", $output->getOutput());
 });
 
