@@ -17,6 +17,7 @@ Feed Generator requires PHP 5.3.0 or later.
 
 * Feeds
 	* [Google Merchant](#google-merchant)
+	* [Heureka.cz](#heurekacz)
 	* [Zbozi.cz](#zbozicz)
 
 * Outputs
@@ -79,6 +80,30 @@ foreach ($products as $product) {
 
 $feed->setItems($items);
 $feed->generate(new Inteve\FeedGenerator\Outputs\FileOutput(__DIR__ . '/feeds/zbozi.xml'));
+```
+
+
+#### Heureka.cz
+
+``` php
+use Inteve\FeedGenerator\Feeds\Heureka;
+
+$feed = new Heureka\HeurekaFeed;
+$items = array();
+
+foreach ($products as $product) {
+	$items[] = Heureka\HeurekaItem::create()
+		->setId($product->id)
+		->setProductName($product->name)
+		->setDescription($product->description)
+		->setUrl('http://www.example.com/product/' . $product->url)
+		->setImageUrl('https://www.example.com/images/product/' . $product->id)
+		->setPrice($product->price)
+		->setDeliveryDate($product->qty > 0 ? 0 : 10); // number of days or DateTime
+}
+
+$feed->setItems($items);
+$feed->generate(new Inteve\FeedGenerator\Outputs\FileOutput(__DIR__ . '/feeds/heureka.xml'));
 ```
 
 
