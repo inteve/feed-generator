@@ -79,7 +79,8 @@
 
 
 		/**
-		 * @return string|int
+		 * @param  string|int
+		 * @return self
 		 */
 		public function setId($id)
 		{
@@ -98,7 +99,8 @@
 
 
 		/**
-		 * @return string|int
+		 * @param  string|int
+		 * @return self
 		 */
 		public function setTitle($title)
 		{
