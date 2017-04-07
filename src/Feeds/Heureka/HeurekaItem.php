@@ -11,8 +11,6 @@
 
 	class HeurekaItem implements IFeedItem
 	{
-		const DELIVERY_DATE_UNKNOW = -1;
-
 		/** @var string|int|NULL */
 		private $id;
 
