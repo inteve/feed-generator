@@ -75,6 +75,7 @@ foreach ($products as $product) {
 		->setId($product->id)
 		->setProductName($product->name)
 		->setDescription($product->description)
+		->setCategoryText($product->categoryName)
 		->setUrl('http://www.example.com/product/' . $product->url)
 		->setImageUrl('https://www.example.com/images/product/' . $product->id)
 		->setPrice($product->price)

@@ -21,6 +21,9 @@
 		private $description;
 
 		/** @var string|NULL */
+		private $categoryText;
+
+		/** @var string|NULL */
 		private $url;
 
 		/** @var string|NULL */
@@ -95,6 +98,26 @@
 		public function setDescription($description)
 		{
 			$this->description = $description;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getCategoryText()
+		{
+			return $this->categoryText;
+		}
+
+
+		/**
+		 * @param  string
+		 * @return self
+		 */
+		public function setCategoryText($categoryText)
+		{
+			$this->categoryText = $categoryText;
 			return $this;
 		}
 

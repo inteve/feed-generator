@@ -18,6 +18,7 @@ test(function () {
 		->setId('001')
 		->setProductName('Product ABC')
 		->setDescription('Lorem ipsum dolor sit amet')
+		->setCategoryText('Electronics | TVs')
 		->setUrl('http://www.example.com/product-abc/')
 		->setImageUrl('http://www.example.com/images/product-abc.jpg')
 		->setPrice(5)
@@ -48,6 +49,7 @@ test(function () {
 		'<ITEM_ID>001</ITEM_ID>',
 		'<PRODUCTNAME>Product ABC</PRODUCTNAME>',
 		'<DESCRIPTION>Lorem ipsum dolor sit amet</DESCRIPTION>',
+		'<CATEGORYTEXT>Electronics | TVs</CATEGORYTEXT>',
 		'<URL>http://www.example.com/product-abc/</URL>',
 		'<IMGURL>http://www.example.com/images/product-abc.jpg</IMGURL>',
 		'<PRICE_VAT>5.00</PRICE_VAT>',

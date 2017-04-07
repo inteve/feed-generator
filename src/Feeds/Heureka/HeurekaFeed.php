@@ -45,6 +45,7 @@
 					'ITEM_ID' => $item->getId(),
 					'PRODUCTNAME' => $item->getProductName(),
 					'DESCRIPTION' => $item->getDescription(),
+					'CATEGORYTEXT' => $item->getCategoryText(),
 					'URL' => $item->getUrl(),
 					'IMGURL' => $item->getImageUrl(),
 
