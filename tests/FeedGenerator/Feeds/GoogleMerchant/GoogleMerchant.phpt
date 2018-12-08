@@ -14,7 +14,7 @@ test(function () {
 	$feed = new GoogleMerchantFeed;
 	$feed->setTitle('Products');
 	$feed->setWebsiteUrl('http://www.example.com/');
-	$feed->setUpdated(new DateTime('2017-01-01 00:00:00 UTC'));
+	$feed->setUpdated(new DateTimeImmutable('2017-01-01 00:00:00 UTC'));
 	$feed->setAuthor('Example.com');
 
 	$item = GoogleMerchantItem::create()

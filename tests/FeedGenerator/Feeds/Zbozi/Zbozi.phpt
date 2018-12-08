@@ -34,7 +34,7 @@ test(function () {
 		->setUrl('http://www.example.com/product-def/')
 		->setImageUrl('http://www.example.com/images/product-def.jpg')
 		->setPrice(10.10)
-		->setDeliveryDate(new \DateTime('2016-02-06 18:00:00+0200', new \DateTimeZone('UTC')));
+		->setDeliveryDate(new \DateTimeImmutable('2016-02-06 18:00:00+0200', new \DateTimeZone('UTC')));
 
 	$feed->setItems($items);
 	$feed->generate($output);

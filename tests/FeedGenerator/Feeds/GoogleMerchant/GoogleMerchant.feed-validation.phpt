@@ -29,7 +29,7 @@ test(function () {
 		$feed->generate($output);
 	}, 'Inteve\FeedGenerator\AssertException', 'Missing update date, call $feed->setUpdated().');
 
-	$feed->setUpdated(new \DateTime('2017-01-01 00:00:00 UTC'));
+	$feed->setUpdated(new DateTimeImmutable('2017-01-01 00:00:00 UTC'));
 
 	Assert::exception(function () use ($feed, $output) {
 		$feed->generate($output);
@@ -59,7 +59,7 @@ test(function () {
 	$feed = new GoogleMerchantFeed;
 	$feed->setTitle('Products');
 	$feed->setWebsiteUrl('http://www.example.com/');
-	$feed->setUpdated(new DateTime('2017-01-01 00:00:00 UTC'));
+	$feed->setUpdated(new DateTimeImmutable('2017-01-01 00:00:00 UTC'));
 	$feed->setAuthor('Example.com');
 
 	$feed->setItems(array(
