@@ -16,7 +16,7 @@
 		/** @var string|NULL */
 		private $websiteUrl;
 
-		/** @var \DateTime|NULL */
+		/** @var \DateTimeInterface|NULL */
 		private $updated;
 
 		/** @var string|NULL */
@@ -64,7 +64,7 @@
 
 
 		/**
-		 * @return \DateTime|NULL
+		 * @return \DateTimeInterface|NULL
 		 */
 		public function getUpdated()
 		{
@@ -73,10 +73,10 @@
 
 
 		/**
-		 * @param  \DateTime
+		 * @param  \DateTimeInterface
 		 * @return self
 		 */
-		public function setUpdated(\DateTime $updated)
+		public function setUpdated(\DateTimeInterface $updated)
 		{
 			$this->updated = $updated;
 			return $this;

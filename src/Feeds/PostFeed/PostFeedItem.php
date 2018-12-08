@@ -13,7 +13,7 @@
 		/** @var string */
 		private $title;
 
-		/** @var \DateTime */
+		/** @var \DateTimeInterface */
 		private $date;
 
 		/** @var string|NULL */
@@ -29,9 +29,9 @@
 		/**
 		 * @param  string|int
 		 * @param  string
-		 * @param  \DateTime
+		 * @param  \DateTimeInterface
 		 */
-		public function __construct($id, $title, \DateTime $date)
+		public function __construct($id, $title, \DateTimeInterface $date)
 		{
 			$this->id = $id;
 			$this->title = $title;
@@ -58,7 +58,7 @@
 
 
 		/**
-		 * @return \DateTime
+		 * @return \DateTimeInterface
 		 */
 		public function getDate()
 		{
@@ -129,10 +129,10 @@
 		/**
 		 * @param  string|int
 		 * @param  string
-		 * @param  \DateTime
+		 * @param  \DateTimeInterface
 		 * @return static
 		 */
-		public static function create($id, $title, \DateTime $date)
+		public static function create($id, $title, \DateTimeInterface $date)
 		{
 			return new static($id, $title, $date);
 		}

@@ -152,12 +152,12 @@
 
 
 		/**
-		 * @param  string|\DateTime|int
+		 * @param  string|\DateTimeInterface|int
 		 * @return self
 		 */
 		public function setDeliveryDate($deliveryDate)
 		{
-			if ($deliveryDate instanceof \DateTime) {
+			if ($deliveryDate instanceof \DateTimeInterface) {
 				$this->deliveryDate = $deliveryDate->format('Y-m-d');
 
 			} else {
