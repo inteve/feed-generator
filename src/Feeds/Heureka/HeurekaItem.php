@@ -26,6 +26,9 @@
 		/** @var string|NULL */
 		private $url;
 
+		/** @var string|int|NULL */
+		private $ean;
+
 		/** @var string|NULL */
 		private $price;
 
@@ -58,6 +61,26 @@
 		public function setId($id)
 		{
 			$this->id = $id;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|int|NULL
+		 */
+		public function getEan()
+		{
+			return $this->ean;
+		}
+
+
+		/**
+		 * @param  string|int
+		 * @return self
+		 */
+		public function setEan($ean)
+		{
+			$this->ean = $ean;
 			return $this;
 		}
 

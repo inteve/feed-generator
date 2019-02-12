@@ -23,6 +23,7 @@ test(function () {
 		->setImageUrl('http://www.example.com/images/product-abc.jpg')
 		->setPrice(5)
 		->setDeliveryDate(0)
+		->setEan('6417182041488')
 		->setGroupId('AB12345')
 		->addParameter('color', 'red')
 		->addParameter('size', 'XXL')
@@ -47,6 +48,7 @@ test(function () {
 		'<SHOP>',
 		'<SHOPITEM>',
 		'<ITEM_ID>001</ITEM_ID>',
+		'<EAN>6417182041488</EAN>',
 		'<PRODUCTNAME>Product ABC</PRODUCTNAME>',
 		'<DESCRIPTION>Lorem ipsum dolor sit amet</DESCRIPTION>',
 		'<CATEGORYTEXT>Electronics | TVs</CATEGORYTEXT>',
