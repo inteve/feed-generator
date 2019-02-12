@@ -80,7 +80,7 @@
 		 */
 		public function setEan($ean)
 		{
-			$this->id = $ean;
+			$this->ean = $ean;
 			return $this;
 		}
 
