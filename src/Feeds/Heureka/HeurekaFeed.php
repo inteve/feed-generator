@@ -43,6 +43,7 @@
 
 				Helpers::writeXml($output, array(
 					'ITEM_ID' => $item->getId(),
+					'EAN' => $item->getEan(),
 					'PRODUCTNAME' => $item->getProductName(),
 					'DESCRIPTION' => $item->getDescription(),
 					'CATEGORYTEXT' => $item->getCategoryText(),
