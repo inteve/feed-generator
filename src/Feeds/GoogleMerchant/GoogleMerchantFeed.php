@@ -162,6 +162,7 @@
 					'g:description' => $item->getDescription(),
 					'g:link' => $item->getUrl(),
 					'g:image_link' => $item->getImageUrl(),
+					'g:gtin' => $item->getEan(),
 
 					// price & availability
 					'g:availability' => $item->getAvailability(),

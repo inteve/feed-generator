@@ -60,6 +60,9 @@
 		private $size;
 
 		/** @var string|NULL */
+		private $ean;
+
+		/** @var string|NULL */
 		private $groupId;
 
 		/** @var string|NULL */
@@ -304,6 +307,25 @@
 		public function getSize()
 		{
 			return $this->size;
+		}
+
+		/**
+		 * @return string|int|NULL
+		 */
+		public function getEan()
+		{
+			return $this->ean;
+		}
+
+
+		/**
+		 * @param  string|int
+		 * @return self
+		 */
+		public function setEan($ean)
+		{
+			$this->ean = $ean;
+			return $this;
 		}
 
 

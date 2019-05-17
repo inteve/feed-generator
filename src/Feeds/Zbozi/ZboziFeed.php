@@ -47,6 +47,7 @@
 					'DESCRIPTION' => $item->getDescription(),
 					'URL' => $item->getUrl(),
 					'IMGURL' => $item->getImageUrl(),
+					'EAN' => $item->getEan(),
 
 					// price & availability
 					'PRICE_VAT' => $item->getPrice(),

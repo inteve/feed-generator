@@ -26,6 +26,9 @@
 		private $url;
 
 		/** @var string|NULL */
+		private $ean;
+
+		/** @var string|NULL */
 		private $price;
 
 		/** @var string|NULL */
@@ -224,6 +227,25 @@
 		public function setGroupId($groupId)
 		{
 			$this->groupId = $groupId;
+			return $this;
+		}
+
+		/**
+		 * @return string|int|NULL
+		 */
+		public function getEan()
+		{
+			return $this->ean;
+		}
+
+
+		/**
+		 * @param  string|int
+		 * @return self
+		 */
+		public function setEan($ean)
+		{
+			$this->ean = $ean;
 			return $this;
 		}
 
