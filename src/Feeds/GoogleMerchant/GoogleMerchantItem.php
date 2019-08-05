@@ -71,6 +71,9 @@
 		/** @var string|NULL */
 		private $shippingLabel;
 
+		/** @var string|NULL */
+		private $googleProductCategory;
+
 
 		/**
 		 * @return string|int
@@ -396,6 +399,26 @@
 		public function setShippingLabel($shippingLabel)
 		{
 			$this->shippingLabel = $shippingLabel;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getGoogleProductCategory()
+		{
+			return $this->googleProductCategory;
+		}
+
+
+		/**
+		 * @param  string
+		 * @return self
+		 */
+		public function setGoogleProductCategory($googleProductCategory)
+		{
+			$this->googleProductCategory = $googleProductCategory;
 			return $this;
 		}
 

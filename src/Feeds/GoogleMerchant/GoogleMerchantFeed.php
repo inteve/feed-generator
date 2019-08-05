@@ -178,6 +178,9 @@
 					// group ID
 					'g:item_group_id' => $item->getGroupId(),
 
+					// Google Product Category
+					'g:google_product_category' => $item->getGoogleProductCategory(),
+
 					// shipping
 					'g:shipping' => $item->getShipping(),
 					'g:shipping_label' => $item->getShippingLabel(),
