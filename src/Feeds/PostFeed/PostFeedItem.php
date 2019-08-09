@@ -25,6 +25,9 @@
 		/** @var string|NULL */
 		private $image;
 
+		/** @var array|NULL */
+		private $meta;
+
 
 		/**
 		 * @param  string|int
@@ -122,6 +125,26 @@
 		public function setImage($image)
 		{
 			$this->image = $image;
+			return $this;
+		}
+
+
+		/**
+		 * @return array|NULL
+		 */
+		public function getMeta()
+		{
+			return $this->meta;
+		}
+
+
+		/**
+		 * @param  array|NULL
+		 * @return self
+		 */
+		public function setMeta($meta)
+		{
+			$this->meta = $meta;
 			return $this;
 		}
 

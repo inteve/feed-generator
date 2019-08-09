@@ -30,6 +30,11 @@ test(function () {
 		->setUrl('https://www.example.com/')
 		->setText('Lorem ipsum dolor sit amet');
 
+	$items[] = PostFeedItem::create('item3', 'Title 3', new DateTimeImmutable('2016-02-06 18:00:00 UTC'))
+		->setMeta(array(
+			'metadata1' => 'value1',
+		));
+
 	$feed->setItems($items);
 	$feed->generate($output);
 
@@ -47,6 +52,14 @@ test(function () {
 			'text' => 'Lorem ipsum dolor sit amet',
 			'url' => 'https://www.example.com/',
 			'image' => 'https://www.example.com/image.jpg',
+		)) . ',',
+		Json::encode(array(
+			'id' => 'item3',
+			'title' => 'Title 3',
+			'date' => '2016-02-06 18:00:00',
+			'meta' => array(
+				'metadata1' => 'value1',
+			),
 		)),
 		']',
 		'',

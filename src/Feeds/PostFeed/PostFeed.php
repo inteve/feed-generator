@@ -53,6 +53,7 @@
 					'text' => $item->getText(),
 					'url' => $item->getUrl(),
 					'image' => $item->getImage(),
+					'meta' => $item->getMeta(),
 				);
 
 				if ($data['text'] === NULL) {
@@ -65,6 +66,10 @@
 
 				if ($data['image'] === NULL) {
 					unset($data['image']);
+				}
+
+				if ($data['meta'] === NULL) {
+					unset($data['meta']);
 				}
 
 				$output->output(Json::encode($data));
