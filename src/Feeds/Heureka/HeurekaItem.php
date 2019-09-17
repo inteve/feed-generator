@@ -33,6 +33,9 @@
 		private $price;
 
 		/** @var string|NULL */
+		private $manufacturer;
+
+		/** @var string|NULL */
 		private $deliveryDate;
 
 		/** @var HeurekaItemParameter[] */
@@ -207,6 +210,26 @@
 		public function setPrice($price)
 		{
 			$this->price = $this->formatPrice($price);
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getManufacturer()
+		{
+			return $this->manufacturer;
+		}
+
+
+		/**
+		 * @param  string|float|int
+		 * @return self
+		 */
+		public function setManufacturer($manufacturer)
+		{
+			$this->manufacturer = $manufacturer;
 			return $this;
 		}
 

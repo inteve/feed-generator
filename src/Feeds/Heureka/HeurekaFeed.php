@@ -45,6 +45,7 @@
 					'ITEM_ID' => $item->getId(),
 					'EAN' => $item->getEan(),
 					'PRODUCTNAME' => $item->getProductName(),
+					'MANUFACTURER' => $item->getManufacturer(),
 					'DESCRIPTION' => $item->getDescription(),
 					'CATEGORYTEXT' => $item->getCategoryText(),
 					'URL' => $item->getUrl(),
