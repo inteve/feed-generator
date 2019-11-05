@@ -80,7 +80,7 @@
 
 		/**
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setText($text)
 		{
@@ -100,7 +100,7 @@
 
 		/**
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setUrl($url)
 		{
@@ -120,7 +120,7 @@
 
 		/**
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setImage($image)
 		{
@@ -140,7 +140,7 @@
 
 		/**
 		 * @param  array|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setMeta($meta)
 		{

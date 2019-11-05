@@ -80,7 +80,7 @@
 
 		/**
 		 * @param  string|int
-		 * @return self
+		 * @return static
 		 */
 		public function setId($id)
 		{
@@ -100,7 +100,7 @@
 
 		/**
 		 * @param  string|int
-		 * @return self
+		 * @return static
 		 */
 		public function setTitle($title)
 		{
@@ -120,7 +120,7 @@
 
 		/**
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setDescription($description)
 		{
@@ -140,7 +140,7 @@
 
 		/**
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setUrl($url)
 		{
@@ -161,7 +161,7 @@
 
 		/**
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setImageUrl($imageUrl)
 		{
@@ -181,7 +181,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setAvailability($availability)
 		{
@@ -205,7 +205,7 @@
 		/**
 		 * @param  float|string|int
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setPrice($price, $currency)
 		{
@@ -225,7 +225,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setCondition($condition)
 		{
@@ -249,7 +249,7 @@
 
 		/**
 		 * @param  bool
-		 * @return self
+		 * @return static
 		 */
 		public function setAdult($adult)
 		{
@@ -269,7 +269,7 @@
 
 		/**
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setColor($color)
 		{
@@ -289,7 +289,7 @@
 
 		/**
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setGender($gender)
 		{
@@ -309,7 +309,7 @@
 
 		/**
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function setSize($size)
 		{
@@ -329,7 +329,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setGroupId($groupId)
 		{
@@ -349,7 +349,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setShipping($price, $currency)
 		{
@@ -369,7 +369,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setShippingLabel($shippingLabel)
 		{

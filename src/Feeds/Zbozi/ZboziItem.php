@@ -52,7 +52,7 @@
 
 		/**
 		 * @param  string|int
-		 * @return self
+		 * @return static
 		 */
 		public function setId($id)
 		{
@@ -72,7 +72,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setProductName($productName)
 		{
@@ -92,7 +92,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setDescription($description)
 		{
@@ -112,7 +112,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setUrl($url)
 		{
@@ -132,7 +132,7 @@
 
 		/**
 		 * @param  string|\DateTimeInterface|int
-		 * @return self
+		 * @return static
 		 */
 		public function setDeliveryDate($deliveryDate)
 		{
@@ -157,7 +157,7 @@
 
 		/**
 		 * @param  string|float|int
-		 * @return self
+		 * @return static
 		 */
 		public function setPrice($price)
 		{
@@ -179,7 +179,7 @@
 		 * @param  string
 		 * @param  string
 		 * @param  string|NULL
-		 * @return self
+		 * @return static
 		 */
 		public function addParameter($name, $value, $unit = NULL)
 		{
@@ -199,7 +199,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setImageUrl($imageUrl)
 		{
@@ -219,7 +219,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setGroupId($groupId)
 		{

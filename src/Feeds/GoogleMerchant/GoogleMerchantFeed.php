@@ -34,7 +34,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setTitle($title)
 		{
@@ -54,7 +54,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setWebsiteUrl($websiteUrl)
 		{
@@ -74,7 +74,7 @@
 
 		/**
 		 * @param  \DateTimeInterface
-		 * @return self
+		 * @return static
 		 */
 		public function setUpdated(\DateTimeInterface $updated)
 		{
@@ -94,7 +94,7 @@
 
 		/**
 		 * @param  string
-		 * @return self
+		 * @return static
 		 */
 		public function setAuthor($author)
 		{
