@@ -166,6 +166,7 @@
 					'g:description' => $item->getDescription(),
 					'g:link' => $item->getUrl(),
 					'g:image_link' => $item->getImageUrl(),
+					'g:gtin' => $item->getEan(),
 
 					// price & availability
 					'g:availability' => $item->getAvailability(),
@@ -180,6 +181,9 @@
 
 					// group ID
 					'g:item_group_id' => $item->getGroupId(),
+
+					// Google Product Category
+					'g:google_product_category' => $item->getGoogleProductCategory(),
 
 					// shipping
 					'g:shipping' => $item->getShipping(),

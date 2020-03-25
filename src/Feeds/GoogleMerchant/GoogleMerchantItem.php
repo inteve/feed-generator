@@ -60,6 +60,9 @@
 		private $size;
 
 		/** @var string|NULL */
+		private $ean;
+
+		/** @var string|NULL */
 		private $groupId;
 
 		/** @var string|NULL */
@@ -67,6 +70,9 @@
 
 		/** @var string|NULL */
 		private $shippingLabel;
+
+		/** @var string|NULL */
+		private $googleProductCategory;
 
 
 		/**
@@ -306,6 +312,25 @@
 			return $this->size;
 		}
 
+		/**
+		 * @return string|int|NULL
+		 */
+		public function getEan()
+		{
+			return $this->ean;
+		}
+
+
+		/**
+		 * @param  string|int
+		 * @return self
+		 */
+		public function setEan($ean)
+		{
+			$this->ean = $ean;
+			return $this;
+		}
+
 
 		/**
 		 * @param  string|NULL
@@ -374,6 +399,26 @@
 		public function setShippingLabel($shippingLabel)
 		{
 			$this->shippingLabel = $shippingLabel;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getGoogleProductCategory()
+		{
+			return $this->googleProductCategory;
+		}
+
+
+		/**
+		 * @param  string
+		 * @return self
+		 */
+		public function setGoogleProductCategory($googleProductCategory)
+		{
+			$this->googleProductCategory = $googleProductCategory;
 			return $this;
 		}
 

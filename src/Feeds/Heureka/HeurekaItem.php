@@ -30,7 +30,13 @@
 		private $ean;
 
 		/** @var string|NULL */
+		private $ean;
+
+		/** @var string|NULL */
 		private $price;
+
+		/** @var string|NULL */
+		private $manufacturer;
 
 		/** @var string|NULL */
 		private $deliveryDate;
@@ -61,6 +67,27 @@
 		public function setId($id)
 		{
 			$this->id = $id;
+
+			return $this;
+		}
+
+
+		/**
+		 * @return string|int|NULL
+		 */
+		public function getEan()
+		{
+			return $this->ean;
+		}
+
+
+		/**
+		 * @param  string|int
+		 * @return self
+		 */
+		public function setEan($ean)
+		{
+			$this->ean = $ean;
 			return $this;
 		}
 
@@ -206,6 +233,26 @@
 		public function setPrice($price)
 		{
 			$this->price = $this->formatPrice($price);
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getManufacturer()
+		{
+			return $this->manufacturer;
+		}
+
+
+		/**
+		 * @param  string|float|int
+		 * @return self
+		 */
+		public function setManufacturer($manufacturer)
+		{
+			$this->manufacturer = $manufacturer;
 			return $this;
 		}
 
