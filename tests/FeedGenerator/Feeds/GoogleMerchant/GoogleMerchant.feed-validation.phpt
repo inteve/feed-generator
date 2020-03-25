@@ -1,7 +1,9 @@
 <?php
 
+use Inteve\FeedGenerator\AssertException;
 use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantFeed;
 use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantItem;
+use Inteve\FeedGenerator\InvalidItemException;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
 use Nette\Utils\Json;
 use Tester\Assert;
@@ -15,25 +17,25 @@ test(function () {
 
 	Assert::exception(function () use ($feed, $output) {
 		$feed->generate($output);
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing title, call $feed->setTitle().');
+	}, AssertException::class, 'Missing title, call $feed->setTitle().');
 
 	$feed->setTitle('Products');
 
 	Assert::exception(function () use ($feed, $output) {
 		$feed->generate($output);
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing website URL, call $feed->setWebsiteUrl().');
+	}, AssertException::class, 'Missing website URL, call $feed->setWebsiteUrl().');
 
 	$feed->setWebsiteUrl('http://www.example.com/');
 
 	Assert::exception(function () use ($feed, $output) {
 		$feed->generate($output);
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing update date, call $feed->setUpdated().');
+	}, AssertException::class, 'Missing update date, call $feed->setUpdated().');
 
 	$feed->setUpdated(new DateTimeImmutable('2017-01-01 00:00:00 UTC'));
 
 	Assert::exception(function () use ($feed, $output) {
 		$feed->generate($output);
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing author, call $feed->setAuthor().');
+	}, AssertException::class, 'Missing author, call $feed->setAuthor().');
 
 	$feed->setAuthor('Example.com');
 
@@ -70,6 +72,6 @@ test(function () {
 
 	Assert::exception(function () use ($feed, $output) {
 		$feed->generate($output);
-	}, 'Inteve\FeedGenerator\InvalidItemException', 'Feed item must be instance of GoogleMerchantItem.');
+	}, InvalidItemException::class, 'Feed item must be instance of GoogleMerchantItem.');
 
 });

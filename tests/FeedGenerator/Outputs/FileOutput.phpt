@@ -1,5 +1,7 @@
 <?php
 
+use Inteve\FeedGenerator\FileSystemException;
+use Inteve\FeedGenerator\OutputException;
 use Inteve\FeedGenerator\Outputs\FileOutput;
 use Nette\Utils\Json;
 use Tester\Assert;
@@ -13,7 +15,7 @@ test(function () {
 	Assert::exception(function () {
 		$output = new FileOutput(TEMP_DIR . '/output.txt');
 		$output->output('Lorem ipsum dolor');
-	}, 'Inteve\FeedGenerator\OutputException', 'File is not open, call open() method.');
+	}, OutputException::class, 'File is not open, call open() method.');
 
 	Assert::exception(function () {
 		$output = new FileOutput(TEMP_DIR . '/output.txt');
@@ -22,7 +24,7 @@ test(function () {
 		$output->close();
 		$output->output('sit amet');
 
-	}, 'Inteve\FeedGenerator\OutputException', 'File is not open, call open() method.');
+	}, OutputException::class, 'File is not open, call open() method.');
 });
 
 
@@ -30,13 +32,13 @@ test(function () {
 	Assert::exception(function () {
 		$output = new FileOutput(TEMP_DIR . '/output.txt');
 		$output->output('Lorem ipsum dolor');
-	}, 'Inteve\FeedGenerator\OutputException', 'File is not open, call open() method.');
+	}, OutputException::class, 'File is not open, call open() method.');
 
 	Assert::exception(function () {
 		$output = new FileOutput(TEMP_DIR);
 		$output->open();
 
-	}, 'Inteve\FeedGenerator\FileSystemException', 'File \'' . TEMP_DIR . '\' is not writable.');
+	}, FileSystemException::class, 'File \'' . TEMP_DIR . '\' is not writable.');
 });
 
 

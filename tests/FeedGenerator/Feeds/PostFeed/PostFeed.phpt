@@ -2,6 +2,7 @@
 
 use Inteve\FeedGenerator\Feeds\PostFeed\PostFeed;
 use Inteve\FeedGenerator\Feeds\PostFeed\PostFeedItem;
+use Inteve\FeedGenerator\InvalidItemException;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
 use Nette\Utils\Json;
 use Tester\Assert;
@@ -75,5 +76,5 @@ test(function () {
 			'item',
 		]);
 		$feed->generate($output);
-	}, 'Inteve\FeedGenerator\InvalidItemException', 'Feed item must be instance of PostFeedItem.');
+	}, InvalidItemException::class, 'Feed item must be instance of PostFeedItem.');
 });

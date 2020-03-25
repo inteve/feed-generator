@@ -1,6 +1,7 @@
 <?php
 
 use Inteve\FeedGenerator\Feed;
+use Inteve\FeedGenerator\InvalidArgumentException;
 use Inteve\FeedGenerator\IOutput;
 use Tester\Assert;
 
@@ -38,10 +39,10 @@ test(function () {
 	Assert::exception(function () {
 		$feed = new TestFeed;
 		$feed->setItems('');
-	}, 'Inteve\FeedGenerator\InvalidArgumentException', 'Items must be array or \\Traversable, string given.');
+	}, InvalidArgumentException::class, 'Items must be array or \\Traversable, string given.');
 
 	Assert::exception(function () {
 		$feed = new TestFeed;
 		$feed->setItems((object) []);
-	}, 'Inteve\FeedGenerator\InvalidArgumentException', 'Items must be array or \\Traversable, object given.');
+	}, InvalidArgumentException::class, 'Items must be array or \\Traversable, object given.');
 });

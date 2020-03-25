@@ -1,7 +1,9 @@
 <?php
 
+use Inteve\FeedGenerator\AssertException;
 use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantFeed;
 use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantItem;
+use Inteve\FeedGenerator\InvalidArgumentException;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
 use Nette\Utils\Json;
 use Tester\Assert;
@@ -14,37 +16,37 @@ test(function () {
 
 	Assert::exception(function () use ($item) {
 		$item->validate();
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing item ID, call $item->setId().');
+	}, AssertException::class, 'Missing item ID, call $item->setId().');
 
 	$item->setId('001');
 
 	Assert::exception(function () use ($item) {
 		$item->validate();
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing item title, call $item->setTitle().');
+	}, AssertException::class, 'Missing item title, call $item->setTitle().');
 
 	$item->setTitle('Product ABC');
 
 	Assert::exception(function () use ($item) {
 		$item->validate();
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing item description, call $item->setDescription().');
+	}, AssertException::class, 'Missing item description, call $item->setDescription().');
 
 	$item->setDescription('Lorem ipsum dolor sit amet');
 
 	Assert::exception(function () use ($item) {
 		$item->validate();
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing item URL, call $item->setUrl().');
+	}, AssertException::class, 'Missing item URL, call $item->setUrl().');
 
 	$item->setUrl('http://www.example.com/product-abc/');
 
 	Assert::exception(function () use ($item) {
 		$item->validate();
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing item image URL, call $item->setImageUrl().');
+	}, AssertException::class, 'Missing item image URL, call $item->setImageUrl().');
 
 	$item->setImageUrl('http://www.example.com/images/product-abc.jpg');
 
 	Assert::exception(function () use ($item) {
 		$item->validate();
-	}, 'Inteve\FeedGenerator\AssertException', 'Missing item price, call $item->setPrice().');
+	}, AssertException::class, 'Missing item price, call $item->setPrice().');
 
 	$item->setPrice(5, 'USD');
 	$item->validate();
@@ -74,7 +76,7 @@ test(function () {
 
 	Assert::exception(function () use ($item) {
 		$item->setAvailability('invalid');
-	}, 'Inteve\FeedGenerator\InvalidArgumentException', 'Invalid availability \'invalid\'.');
+	}, InvalidArgumentException::class, 'Invalid availability \'invalid\'.');
 });
 
 
@@ -93,5 +95,5 @@ test(function () {
 
 	Assert::exception(function () use ($item) {
 		$item->setCondition('invalid');
-	}, 'Inteve\FeedGenerator\InvalidArgumentException', 'Invalid condition \'invalid\'.');
+	}, InvalidArgumentException::class, 'Invalid condition \'invalid\'.');
 });
