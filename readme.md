@@ -83,8 +83,8 @@ foreach ($products as $product) {
 		->setUrl('http://www.example.com/product/' . $product->url)
 		->setImageUrl('https://www.example.com/images/product/' . $product->id)
 		->setPriceVat($product->price)
-		->setDeliveryDate($product->qty > 0 ? 0 : 10)
-		->addParameter('velikost', 'XS'); // number of days
+		->setDeliveryDate($product->qty > 0 ? 0 : 10) // number of days
+		->addParameter('velikost', 'XS');
 }
 
 $feed->setItems($items);
