@@ -9,7 +9,7 @@
 	use Nette\Utils\Validators;
 
 
-	class ZboziItemParameter implements IFeedItem
+	class ZboziItemParameter
 	{
 		/** @var string */
 		private $name;

@@ -9,7 +9,7 @@
 	use Nette\Utils\Validators;
 
 
-	class HeurekaItemParameter implements IFeedItem
+	class HeurekaItemParameter
 	{
 		/** @var string */
 		private $name;
