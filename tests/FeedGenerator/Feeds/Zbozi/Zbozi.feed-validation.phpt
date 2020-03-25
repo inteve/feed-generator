@@ -13,11 +13,11 @@ test(function () {
 	$output = new MemoryOutput;
 	$feed = new ZboziFeed;
 
-	$feed->setItems(array(
-		array(
+	$feed->setItems([
+		[
 			'title' => 'ABC',
-		),
-	));
+		],
+	]);
 
 	Assert::exception(function () use ($feed, $output) {
 		$feed->generate($output);

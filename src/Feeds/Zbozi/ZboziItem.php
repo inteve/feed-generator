@@ -32,7 +32,7 @@
 		private $deliveryDate;
 
 		/** @var ZboziItemParameter[] */
-		private $parameters = array();
+		private $parameters = [];
 
 		/** @var string|NULL */
 		private $imageUrl;

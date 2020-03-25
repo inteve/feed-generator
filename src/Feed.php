@@ -6,7 +6,7 @@
 	abstract class Feed implements IFeed
 	{
 		/** @var array|\Traversable */
-		protected $items = array();
+		protected $items = [];
 
 
 		/**

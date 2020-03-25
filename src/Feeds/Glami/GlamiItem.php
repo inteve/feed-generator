@@ -36,7 +36,7 @@
 		private $deliveryDate;
 
 		/** @var GlamiItemParameter[] */
-		private $parameters = array();
+		private $parameters = [];
 
 		/** @var string|NULL */
 		private $imageUrl;

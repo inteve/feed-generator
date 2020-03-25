@@ -41,7 +41,7 @@
 
 				$output->output("<SHOPITEM>\n");
 
-				Helpers::writeXml($output, array(
+				Helpers::writeXml($output, [
 					'ITEM_ID' => $item->getId(),
 					'PRODUCTNAME' => $item->getProductName(),
 					'DESCRIPTION' => $item->getDescription(),
@@ -54,18 +54,18 @@
 
 					// group ID
 					'ITEMGROUP_ID' => $item->getGroupId(),
-				));
+				]);
 
 				foreach ($item->getParameters() as $parameter) {
-					Helpers::writeXml($output, array(
-						'PARAM' => array(
-							'content' => array(
+					Helpers::writeXml($output, [
+						'PARAM' => [
+							'content' => [
 								'PARAM_NAME' => $parameter->getName(),
 								'VAL' => $parameter->getValue(),
 								'UNIT' => $parameter->getUnit(),
-							),
-						),
-					));
+							],
+						],
+					]);
 				}
 
 				$output->output("</SHOPITEM>\n");

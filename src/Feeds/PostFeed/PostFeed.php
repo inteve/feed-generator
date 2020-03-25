@@ -46,7 +46,7 @@
 				$date = clone $item->getDate();
 				$date->setTimezone($timezone);
 
-				$data = array(
+				$data = [
 					'id' => $item->getId(),
 					'title' => $item->getTitle(),
 					'date' => $date->format('Y-m-d H:i:s'),
@@ -54,7 +54,7 @@
 					'url' => $item->getUrl(),
 					'image' => $item->getImage(),
 					'meta' => $item->getMeta(),
-				);
+				];
 
 				if ($data['text'] === NULL) {
 					unset($data['text']);

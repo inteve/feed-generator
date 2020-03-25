@@ -39,7 +39,7 @@ test(function () {
 
 	$feed->generate($output);
 
-	Assert::same(implode("\n", array(
+	Assert::same(implode("\n", [
 		'<?xml version="1.0" encoding="utf-8"?>',
 		'<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0">',
 		'<title>Products</title>',
@@ -50,7 +50,7 @@ test(function () {
 		'</author>',
 		'</feed>',
 		'',
-	)), $output->getOutput());
+	]), $output->getOutput());
 });
 
 
@@ -62,11 +62,11 @@ test(function () {
 	$feed->setUpdated(new DateTimeImmutable('2017-01-01 00:00:00 UTC'));
 	$feed->setAuthor('Example.com');
 
-	$feed->setItems(array(
-		array(
+	$feed->setItems([
+		[
 			'title' => 'ABC',
-		),
-	));
+		],
+	]);
 
 	Assert::exception(function () use ($feed, $output) {
 		$feed->generate($output);

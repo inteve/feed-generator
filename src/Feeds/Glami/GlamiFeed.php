@@ -41,7 +41,7 @@
 
 				$output->output("<SHOPITEM>\n");
 
-				Helpers::writeXml($output, array(
+				Helpers::writeXml($output, [
 					'ITEM_ID' => $item->getId(),
 					'EAN' => $item->getEan(),
 					'PRODUCTNAME' => $item->getProductName(),
@@ -56,22 +56,22 @@
 
 					// group ID
 					'ITEMGROUP_ID' => $item->getGroupId(),
-				));
+				]);
 
 				foreach ($item->getParameters() as $parameter) {
 					if (!$parameter->isFilled()) {
 						continue;
 					}
 
-					Helpers::writeXml($output, array(
-						'PARAM' => array(
-							'content' => array(
+					Helpers::writeXml($output, [
+						'PARAM' => [
+							'content' => [
 								'PARAM_NAME' => $parameter->getName(),
 								'VAL' => $parameter->getValue(),
 								'PERCENTAGE' => $parameter->getPercentage(),
-							),
-						),
-					));
+							],
+						],
+					]);
 				}
 
 				$output->output("</SHOPITEM>\n");

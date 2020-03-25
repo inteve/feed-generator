@@ -31,12 +31,12 @@ test(function () {
 		->setShipping(10, 'USD')
 		->setShippingLabel('Only FedEx');
 
-	$feed->setItems(array($item));
+	$feed->setItems([$item]);
 	$feed->generate($output);
 
 	Assert::same('application/atom+xml', $feed->getContentType());
 
-	Assert::same(implode("\n", array(
+	Assert::same(implode("\n", [
 		'<?xml version="1.0" encoding="utf-8"?>',
 		'<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0">',
 		'<title>Products</title>',
@@ -65,5 +65,5 @@ test(function () {
 		'</entry>',
 		'</feed>',
 		'',
-	)), $output->getOutput());
+	]), $output->getOutput());
 });

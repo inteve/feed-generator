@@ -36,7 +36,7 @@
 		private $deliveryDate;
 
 		/** @var HeurekaItemParameter[] */
-		private $parameters = array();
+		private $parameters = [];
 
 		/** @var string|NULL */
 		private $imageUrl;

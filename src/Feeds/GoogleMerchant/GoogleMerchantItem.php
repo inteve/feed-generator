@@ -185,7 +185,7 @@
 		 */
 		public function setAvailability($availability)
 		{
-			if (!in_array($availability, array(self::AVAILABILITY_IN_STOCK, self::AVAILABILITY_OUT_OF_STOCK, self::AVAILABILITY_PREORDER), TRUE)) {
+			if (!in_array($availability, [self::AVAILABILITY_IN_STOCK, self::AVAILABILITY_OUT_OF_STOCK, self::AVAILABILITY_PREORDER], TRUE)) {
 				throw new InvalidArgumentException("Invalid availability '{$availability}'.");
 			}
 			$this->availability = $availability;
@@ -229,7 +229,7 @@
 		 */
 		public function setCondition($condition)
 		{
-			if (!in_array($condition, array(self::CONDITION_NEW, self::CONDITION_REFURBISHED, self::CONDITION_USED), TRUE)) {
+			if (!in_array($condition, [self::CONDITION_NEW, self::CONDITION_REFURBISHED, self::CONDITION_USED], TRUE)) {
 				throw new InvalidArgumentException("Invalid condition '{$condition}'.");
 			}
 

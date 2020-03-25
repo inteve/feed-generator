@@ -128,22 +128,22 @@
 
 			$feedUpdated = $this->getUpdated();
 
-			Helpers::writeXml($output, array(
+			Helpers::writeXml($output, [
 				'title' => $this->getTitle(),
-				'link' => array(
-					'attrs' => array(
+				'link' => [
+					'attrs' => [
 						'href' => $this->getWebsiteUrl(),
 						'rel' => 'alternate',
 						'type' => 'text/html',
-					),
-				),
+					],
+				],
 				'updated' => $feedUpdated ? $feedUpdated->format(\DateTime::ATOM) : NULL,
-				'author' => array(
-					'content' => array(
+				'author' => [
+					'content' => [
 						'name' => $this->getAuthor(),
-					),
-				),
-			));
+					],
+				],
+			]);
 
 			foreach ($this->items as $item) {
 				// https://support.google.com/merchants/answer/7052112
@@ -156,7 +156,7 @@
 
 				$output->output("<entry>\n");
 
-				Helpers::writeXml($output, array(
+				Helpers::writeXml($output, [
 					'g:id' => $item->getId(),
 					'g:title' => $item->getTitle(),
 					'g:description' => $item->getDescription(),
@@ -183,7 +183,7 @@
 
 					// identifiers
 					'g:identifier_exists' => !$item->hasIdentifiers() ? 'no' : NULL,
-				));
+				]);
 
 				$output->output("</entry>\n");
 			}

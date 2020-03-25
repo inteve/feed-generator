@@ -12,7 +12,7 @@ require __DIR__ . '/../../../bootstrap.php';
 test(function () {
 	$output = new MemoryOutput;
 	$feed = new ZboziFeed;
-	$items = array();
+	$items = [];
 
 	$items[] = ZboziItem::create()
 		->setId('001')
@@ -41,7 +41,7 @@ test(function () {
 
 	Assert::same('text/xml', $feed->getContentType());
 
-	Assert::same(implode("\n", array(
+	Assert::same(implode("\n", [
 		'<?xml version="1.0" encoding="utf-8"?>',
 		'<SHOP xmlns="http://www.zbozi.cz/ns/offer/1.0">',
 		'<SHOPITEM>',
@@ -79,5 +79,5 @@ test(function () {
 		'</SHOPITEM>',
 		'</SHOP>',
 		'',
-	)), $output->getOutput());
+	]), $output->getOutput());
 });
