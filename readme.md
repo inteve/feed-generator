@@ -22,6 +22,7 @@ Feed Generator requires PHP 5.3.0 or later.
 
 * Feeds
 	* [Google Merchant](#google-merchant)
+	* [Glami.cz](#glamicz)
 	* [Heureka.cz](#heurekacz)
 	* [Zbozi.cz](#zbozicz)
 
@@ -62,6 +63,32 @@ foreach ($products as $product) {
 
 $feed->setItems($items);
 $feed->generate(new Inteve\FeedGenerator\Outputs\FileOutput(__DIR__ . '/feeds/google.xml'));
+```
+
+
+#### Glami.cz
+
+``` php
+use Inteve\FeedGenerator\Feeds\Glami;
+
+$feed = new Glami\GlamiFeed;
+$items = array();
+
+foreach ($products as $product) {
+	$items[] = Glami\GlamiItem::create()
+		->setId($product->id)
+		->setProductName($product->name)
+		->setDescription($product->description)
+		->setCategoryText($product->categoryName)
+		->setUrl('http://www.example.com/product/' . $product->url)
+		->setImageUrl('https://www.example.com/images/product/' . $product->id)
+		->setPriceVat($product->price)
+		->setDeliveryDate($product->qty > 0 ? 0 : 10)
+		->addParameter('velikost', 'XS'); // number of days
+}
+
+$feed->setItems($items);
+$feed->generate(new Inteve\FeedGenerator\Outputs\FileOutput(__DIR__ . '/feeds/glami.xml'));
 ```
 
 
