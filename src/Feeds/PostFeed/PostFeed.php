@@ -31,6 +31,10 @@
 			$timezone = new \DateTimezone('UTC');
 
 			foreach ($this->items as $item) {
+				if ($item === NULL) {
+					continue;
+				}
+
 				if (!($item instanceof PostFeedItem)) {
 					throw new InvalidItemException('Feed item must be instance of PostFeedItem.');
 				}

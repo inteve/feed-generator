@@ -26,6 +26,8 @@ test(function () {
 
 	$items[] = new PostFeedItem(1, 'Title', new DateTime('2016-02-06 18:00:00+0200', new DateTimeZone('UTC')));
 
+	$items[] = NULL;
+
 	$items[] = PostFeedItem::create('item2', 'Title 2', new DateTimeImmutable('2016-02-06 18:00:00 UTC'))
 		->setImage('https://www.example.com/image.jpg')
 		->setUrl('https://www.example.com/')

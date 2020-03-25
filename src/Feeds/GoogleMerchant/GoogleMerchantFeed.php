@@ -148,6 +148,10 @@
 			foreach ($this->items as $item) {
 				// https://support.google.com/merchants/answer/7052112
 
+				if ($item === NULL) {
+					continue;
+				}
+
 				if (!($item instanceof GoogleMerchantItem)) {
 					throw new InvalidItemException('Feed item must be instance of GoogleMerchantItem.');
 				}

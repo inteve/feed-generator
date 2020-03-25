@@ -31,7 +31,7 @@ test(function () {
 		->setShipping(10, 'USD')
 		->setShippingLabel('Only FedEx');
 
-	$feed->setItems([$item]);
+	$feed->setItems([$item, NULL]);
 	$feed->generate($output);
 
 	Assert::same('application/atom+xml', $feed->getContentType());

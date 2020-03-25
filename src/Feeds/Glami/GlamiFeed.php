@@ -33,6 +33,10 @@
 			$output->output("\n");
 
 			foreach ($this->items as $item) {
+				if ($item === NULL) {
+					continue;
+				}
+
 				if (!($item instanceof GlamiItem)) {
 					throw new InvalidItemException('Feed item must be instance of GlamiItem.');
 				}

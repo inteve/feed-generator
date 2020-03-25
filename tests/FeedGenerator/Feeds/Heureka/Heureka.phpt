@@ -29,6 +29,8 @@ test(function () {
 		->addParameter('size', 'XXL')
 		->addParameter('weight', 10, 'kg');
 
+	$items[] = NULL;
+
 	$items[] = HeurekaItem::create()
 		->setId('002')
 		->setProductName('Product DEF')

@@ -28,6 +28,8 @@ test(function () {
 		->addParameter('barva', 'modrá')
 		->addParameter('velikost', 'XXL');
 
+	$items[] = NULL;
+
 	$items[] = GlamiItem::create()
 		->setId('002')
 		->setProductName('Product DEF')
