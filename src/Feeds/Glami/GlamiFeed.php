@@ -5,6 +5,7 @@
 	use Inteve\FeedGenerator\Feed;
 	use Inteve\FeedGenerator\InvalidItemException;
 	use Inteve\FeedGenerator\IOutput;
+	use Inteve\FeedGenerator\ItemsGroup;
 	use Inteve\FeedGenerator\Utils\Helpers;
 
 
@@ -37,45 +38,13 @@
 					continue;
 				}
 
-				if (!($item instanceof GlamiItem)) {
-					throw new InvalidItemException('Feed item must be instance of GlamiItem.');
-				}
-
-				$item->validate();
-
-				$output->output("<SHOPITEM>\n");
-
-				Helpers::writeXml($output, [
-					'ITEM_ID' => $item->getId(),
-					'EAN' => $item->getEan(),
-					'PRODUCTNAME' => $item->getProductName(),
-					'DESCRIPTION' => $item->getDescription(),
-					'CATEGORYTEXT' => $item->getCategoryText(),
-					'URL' => $item->getUrl(),
-					'IMGURL' => $item->getImageUrl(),
-
-					// price & availability
-					'PRICE_VAT' => $item->getPriceVat(),
-					'DELIVERY_DATE' => $item->getDeliveryDate(),
-
-					// group ID
-					'ITEMGROUP_ID' => $item->getGroupId(),
-				]);
-
-				foreach ($item->getParameters() as $parameter) {
-					if (!$parameter->isFilled()) {
-						continue;
+				if ($item instanceof ItemsGroup) {
+					foreach ($item->getItems() as $groupItem) {
+						$this->generateItem($groupItem, $output);
 					}
 
-					Helpers::writeXml($output, [
-						'PARAM' => [
-							'content' => [
-								'PARAM_NAME' => $parameter->getName(),
-								'VAL' => $parameter->getValue(),
-								'PERCENTAGE' => $parameter->getPercentage(),
-							],
-						],
-					]);
+				} else {
+					$this->generateItem($item, $output);
 				}
 
 				$output->output("</SHOPITEM>\n");
@@ -84,5 +53,53 @@
 			$output->output('</SHOP>');
 			$output->output("\n");
 			$output->close();
+		}
+
+
+		/**
+		 * @return void
+		 */
+		private function generateItem($item, IOutput $output)
+		{
+			if (!($item instanceof GlamiItem)) {
+				throw new InvalidItemException('Feed item must be instance of GlamiItem.');
+			}
+
+			$item->validate();
+
+			$output->output("<SHOPITEM>\n");
+
+			Helpers::writeXml($output, [
+				'ITEM_ID' => $item->getId(),
+				'EAN' => $item->getEan(),
+				'PRODUCTNAME' => $item->getProductName(),
+				'DESCRIPTION' => $item->getDescription(),
+				'CATEGORYTEXT' => $item->getCategoryText(),
+				'URL' => $item->getUrl(),
+				'IMGURL' => $item->getImageUrl(),
+
+				// price & availability
+				'PRICE_VAT' => $item->getPriceVat(),
+				'DELIVERY_DATE' => $item->getDeliveryDate(),
+
+				// group ID
+				'ITEMGROUP_ID' => $item->getGroupId(),
+			]);
+
+			foreach ($item->getParameters() as $parameter) {
+				if (!$parameter->isFilled()) {
+					continue;
+				}
+
+				Helpers::writeXml($output, [
+					'PARAM' => [
+						'content' => [
+							'PARAM_NAME' => $parameter->getName(),
+							'VAL' => $parameter->getValue(),
+							'PERCENTAGE' => $parameter->getPercentage(),
+						],
+					],
+				]);
+			}
 		}
 	}

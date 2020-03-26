@@ -2,6 +2,7 @@
 
 use Inteve\FeedGenerator\Feeds\Heureka\HeurekaFeed;
 use Inteve\FeedGenerator\Feeds\Heureka\HeurekaItem;
+use Inteve\FeedGenerator\ItemsGroup;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
 use Nette\Utils\Json;
 use Tester\Assert;
@@ -13,8 +14,9 @@ test(function () {
 	$output = new MemoryOutput;
 	$feed = new HeurekaFeed;
 	$items = [];
+	$itemsGroup = new ItemsGroup;
 
-	$items[] = HeurekaItem::create()
+	$groupItem = HeurekaItem::create()
 		->setId('001')
 		->setProductName('Product ABC')
 		->setDescription('Lorem ipsum dolor sit amet')
@@ -29,6 +31,8 @@ test(function () {
 		->addParameter('size', 'XXL')
 		->addParameter('weight', 10, 'kg');
 
+	$itemsGroup->addItem($groupItem);
+	$items[] = $itemsGroup;
 	$items[] = NULL;
 
 	$items[] = HeurekaItem::create()

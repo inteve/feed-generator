@@ -2,6 +2,7 @@
 
 use Inteve\FeedGenerator\Feeds\Glami\GlamiFeed;
 use Inteve\FeedGenerator\Feeds\Glami\GlamiItem;
+use Inteve\FeedGenerator\ItemsGroup;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
 use Nette\Utils\Json;
 use Tester\Assert;
@@ -13,8 +14,9 @@ test(function () {
 	$output = new MemoryOutput;
 	$feed = new GlamiFeed;
 	$items = [];
+	$itemsGroup = new ItemsGroup;
 
-	$items[] = GlamiItem::create()
+	$groupItem = GlamiItem::create()
 		->setId('001')
 		->setProductName('Product ABC')
 		->setDescription('Lorem ipsum dolor sit amet')
@@ -28,6 +30,8 @@ test(function () {
 		->addParameter('barva', 'modrá')
 		->addParameter('velikost', 'XXL');
 
+	$itemsGroup->addItem($groupItem);
+	$items[] = $itemsGroup;
 	$items[] = NULL;
 
 	$items[] = GlamiItem::create()

@@ -2,6 +2,7 @@
 
 use Inteve\FeedGenerator\Feeds\Zbozi\ZboziFeed;
 use Inteve\FeedGenerator\Feeds\Zbozi\ZboziItem;
+use Inteve\FeedGenerator\ItemsGroup;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
 use Nette\Utils\Json;
 use Tester\Assert;
@@ -13,8 +14,9 @@ test(function () {
 	$output = new MemoryOutput;
 	$feed = new ZboziFeed;
 	$items = [];
+	$itemsGroup = new ItemsGroup;
 
-	$items[] = ZboziItem::create()
+	$groupItem = ZboziItem::create()
 		->setId('001')
 		->setProductName('Product ABC')
 		->setDescription('Lorem ipsum dolor sit amet')
@@ -27,6 +29,8 @@ test(function () {
 		->addParameter('size', 'XXL')
 		->addParameter('weight', 10, 'kg');
 
+	$itemsGroup->addItem($groupItem);
+	$items[] = $itemsGroup;
 	$items[] = NULL;
 
 	$items[] = ZboziItem::create()

@@ -5,6 +5,7 @@
 	use Inteve\FeedGenerator\Feed;
 	use Inteve\FeedGenerator\InvalidItemException;
 	use Inteve\FeedGenerator\IOutput;
+	use Inteve\FeedGenerator\ItemsGroup;
 	use Inteve\FeedGenerator\Utils\Helpers;
 
 
@@ -146,48 +147,18 @@
 			]);
 
 			foreach ($this->items as $item) {
-				// https://support.google.com/merchants/answer/7052112
-
 				if ($item === NULL) {
 					continue;
 				}
 
-				if (!($item instanceof GoogleMerchantItem)) {
-					throw new InvalidItemException('Feed item must be instance of GoogleMerchantItem.');
+				if ($item instanceof ItemsGroup) {
+					foreach ($item->getItems() as $groupItem) {
+						$this->generateItem($groupItem, $output);
+					}
+
+				} else {
+					$this->generateItem($item, $output);
 				}
-
-				$item->validate();
-
-				$output->output("<entry>\n");
-
-				Helpers::writeXml($output, [
-					'g:id' => $item->getId(),
-					'g:title' => $item->getTitle(),
-					'g:description' => $item->getDescription(),
-					'g:link' => $item->getUrl(),
-					'g:image_link' => $item->getImageUrl(),
-
-					// price & availability
-					'g:availability' => $item->getAvailability(),
-					'g:price' => $item->getPrice(),
-
-					// features
-					'g:condition' => $item->getCondition(),
-					'g:adult' => $item->isAdult() ? 'yes' : 'no',
-					'g:color' => $item->getColor(),
-					'g:gender' => $item->getGender(),
-					'g:size' => $item->getSize(),
-
-					// group ID
-					'g:item_group_id' => $item->getGroupId(),
-
-					// shipping
-					'g:shipping' => $item->getShipping(),
-					'g:shipping_label' => $item->getShippingLabel(),
-
-					// identifiers
-					'g:identifier_exists' => !$item->hasIdentifiers() ? 'no' : NULL,
-				]);
 
 				$output->output("</entry>\n");
 			}
@@ -208,5 +179,51 @@
 			Helpers::assert(isset($this->websiteUrl), 'Missing website URL, call $feed->setWebsiteUrl().');
 			Helpers::assert(isset($this->updated), 'Missing update date, call $feed->setUpdated().');
 			Helpers::assert(isset($this->author), 'Missing author, call $feed->setAuthor().');
+		}
+
+
+		/**
+		 * @return void
+		 */
+		private function generateItem($item, IOutput $output)
+		{
+			// https://support.google.com/merchants/answer/7052112
+
+			if (!($item instanceof GoogleMerchantItem)) {
+				throw new InvalidItemException('Feed item must be instance of GoogleMerchantItem.');
+			}
+
+			$item->validate();
+
+			$output->output("<entry>\n");
+
+			Helpers::writeXml($output, [
+				'g:id' => $item->getId(),
+				'g:title' => $item->getTitle(),
+				'g:description' => $item->getDescription(),
+				'g:link' => $item->getUrl(),
+				'g:image_link' => $item->getImageUrl(),
+
+				// price & availability
+				'g:availability' => $item->getAvailability(),
+				'g:price' => $item->getPrice(),
+
+				// features
+				'g:condition' => $item->getCondition(),
+				'g:adult' => $item->isAdult() ? 'yes' : 'no',
+				'g:color' => $item->getColor(),
+				'g:gender' => $item->getGender(),
+				'g:size' => $item->getSize(),
+
+				// group ID
+				'g:item_group_id' => $item->getGroupId(),
+
+				// shipping
+				'g:shipping' => $item->getShipping(),
+				'g:shipping_label' => $item->getShippingLabel(),
+
+				// identifiers
+				'g:identifier_exists' => !$item->hasIdentifiers() ? 'no' : NULL,
+			]);
 		}
 	}

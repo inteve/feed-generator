@@ -2,6 +2,7 @@
 
 use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantFeed;
 use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantItem;
+use Inteve\FeedGenerator\ItemsGroup;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
 use Nette\Utils\Json;
 use Tester\Assert;
@@ -16,8 +17,9 @@ test(function () {
 	$feed->setWebsiteUrl('http://www.example.com/');
 	$feed->setUpdated(new DateTimeImmutable('2017-01-01 00:00:00 UTC'));
 	$feed->setAuthor('Example.com');
+	$itemsGroup = new ItemsGroup;
 
-	$item = GoogleMerchantItem::create()
+	$groupItem = GoogleMerchantItem::create()
 		->setId('001')
 		->setTitle('Product ABC')
 		->setDescription('Lorem ipsum dolor sit amet')
@@ -31,7 +33,8 @@ test(function () {
 		->setShipping(10, 'USD')
 		->setShippingLabel('Only FedEx');
 
-	$feed->setItems([$item, NULL]);
+	$itemsGroup->addItem($groupItem);
+	$feed->setItems([$itemsGroup, NULL]);
 	$feed->generate($output);
 
 	Assert::same('application/atom+xml', $feed->getContentType());

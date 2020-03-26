@@ -3,6 +3,7 @@
 use Inteve\FeedGenerator\Feeds\PostFeed\PostFeed;
 use Inteve\FeedGenerator\Feeds\PostFeed\PostFeedItem;
 use Inteve\FeedGenerator\InvalidItemException;
+use Inteve\FeedGenerator\ItemsGroup;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
 use Nette\Utils\Json;
 use Tester\Assert;
@@ -23,9 +24,12 @@ test(function () {
 	$output = new MemoryOutput;
 	$feed = new PostFeed;
 	$items = [];
+	$itemsGroup = new ItemsGroup;
 
-	$items[] = new PostFeedItem(1, 'Title', new DateTime('2016-02-06 18:00:00+0200', new DateTimeZone('UTC')));
+	$groupItem = new PostFeedItem(1, 'Title', new DateTime('2016-02-06 18:00:00+0200', new DateTimeZone('UTC')));
 
+	$itemsGroup->addItem($groupItem);
+	$items[] = $itemsGroup;
 	$items[] = NULL;
 
 	$items[] = PostFeedItem::create('item2', 'Title 2', new DateTimeImmutable('2016-02-06 18:00:00 UTC'))

@@ -5,6 +5,7 @@
 	use Inteve\FeedGenerator\Feed;
 	use Inteve\FeedGenerator\InvalidItemException;
 	use Inteve\FeedGenerator\IOutput;
+	use Inteve\FeedGenerator\ItemsGroup;
 	use Inteve\FeedGenerator\Utils\Helpers;
 
 
@@ -37,46 +38,62 @@
 					continue;
 				}
 
-				if (!($item instanceof ZboziItem)) {
-					throw new InvalidItemException('Feed item must be instance of ZboziItem.');
+				if ($item instanceof ItemsGroup) {
+					foreach ($item->getItems() as $groupItem) {
+						$this->generateItem($groupItem, $output);
+					}
+
+				} else {
+					$this->generateItem($item, $output);
 				}
-
-				$item->validate();
-
-				$output->output("<SHOPITEM>\n");
-
-				Helpers::writeXml($output, [
-					'ITEM_ID' => $item->getId(),
-					'PRODUCTNAME' => $item->getProductName(),
-					'DESCRIPTION' => $item->getDescription(),
-					'URL' => $item->getUrl(),
-					'IMGURL' => $item->getImageUrl(),
-
-					// price & availability
-					'PRICE_VAT' => $item->getPrice(),
-					'DELIVERY_DATE' => $item->getDeliveryDate(),
-
-					// group ID
-					'ITEMGROUP_ID' => $item->getGroupId(),
-				]);
-
-				foreach ($item->getParameters() as $parameter) {
-					Helpers::writeXml($output, [
-						'PARAM' => [
-							'content' => [
-								'PARAM_NAME' => $parameter->getName(),
-								'VAL' => $parameter->getValue(),
-								'UNIT' => $parameter->getUnit(),
-							],
-						],
-					]);
-				}
-
-				$output->output("</SHOPITEM>\n");
 			}
 
 			$output->output('</SHOP>');
 			$output->output("\n");
 			$output->close();
+		}
+
+
+		/**
+		 * @return void
+		 */
+		private function generateItem($item, IOutput $output)
+		{
+			if (!($item instanceof ZboziItem)) {
+				throw new InvalidItemException('Feed item must be instance of ZboziItem.');
+			}
+
+			$item->validate();
+
+			$output->output("<SHOPITEM>\n");
+
+			Helpers::writeXml($output, [
+				'ITEM_ID' => $item->getId(),
+				'PRODUCTNAME' => $item->getProductName(),
+				'DESCRIPTION' => $item->getDescription(),
+				'URL' => $item->getUrl(),
+				'IMGURL' => $item->getImageUrl(),
+
+				// price & availability
+				'PRICE_VAT' => $item->getPrice(),
+				'DELIVERY_DATE' => $item->getDeliveryDate(),
+
+				// group ID
+				'ITEMGROUP_ID' => $item->getGroupId(),
+			]);
+
+			foreach ($item->getParameters() as $parameter) {
+				Helpers::writeXml($output, [
+					'PARAM' => [
+						'content' => [
+							'PARAM_NAME' => $parameter->getName(),
+							'VAL' => $parameter->getValue(),
+							'UNIT' => $parameter->getUnit(),
+						],
+					],
+				]);
+			}
+
+			$output->output("</SHOPITEM>\n");
 		}
 	}
