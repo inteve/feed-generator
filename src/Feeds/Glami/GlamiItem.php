@@ -24,7 +24,13 @@
 		private $categoryText;
 
 		/** @var string|NULL */
+		private $manufacturer;
+
+		/** @var string|NULL */
 		private $url;
+
+		/** @var string|NULL */
+		private $urlSize;
 
 		/** @var string|int|NULL */
 		private $ean;
@@ -40,6 +46,9 @@
 
 		/** @var string|NULL */
 		private $imageUrl;
+
+		/** @var string[] */
+		private $alternativeImageUrls = [];
 
 		/** @var string|NULL */
 		private $groupId;
@@ -148,6 +157,26 @@
 		/**
 		 * @return string|NULL
 		 */
+		public function getManufacturer()
+		{
+			return $this->manufacturer;
+		}
+
+
+		/**
+		 * @param  string
+		 * @return static
+		 */
+		public function setManufacturer($manufacturer)
+		{
+			$this->manufacturer = $manufacturer;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
 		public function getUrl()
 		{
 			return $this->url;
@@ -161,6 +190,26 @@
 		public function setUrl($url)
 		{
 			$this->url = $url;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getUrlSize()
+		{
+			return $this->urlSize;
+		}
+
+
+		/**
+		 * @param  string
+		 * @return static
+		 */
+		public function setUrlSize($urlSize)
+		{
+			$this->urlSize = $urlSize;
 			return $this;
 		}
 
@@ -243,6 +292,26 @@
 		public function setImageUrl($imageUrl)
 		{
 			$this->imageUrl = $imageUrl;
+			return $this;
+		}
+
+
+		/**
+		 * @return string[]
+		 */
+		public function getAlternativeImageUrls()
+		{
+			return $this->alternativeImageUrls;
+		}
+
+
+		/**
+		 * @param  string
+		 * @return static
+		 */
+		public function addAlternativeImageUrl($alternativeImageUrl)
+		{
+			$this->alternativeImageUrls[] = $alternativeImageUrl;
 			return $this;
 		}
 

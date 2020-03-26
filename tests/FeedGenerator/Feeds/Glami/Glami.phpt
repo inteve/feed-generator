@@ -22,11 +22,15 @@ test(function () {
 		->setDescription('Lorem ipsum dolor sit amet')
 		->setCategoryText('Glami.cz | Oblečení')
 		->setUrl('http://www.example.com/product-abc/')
+		->setUrlSize('http://www.example.com/product-abc/?size=41')
 		->setImageUrl('http://www.example.com/images/product-abc.jpg')
+		->addAlternativeImageUrl('http://www.example.com/images/product-abc-1.jpg')
+		->addAlternativeImageUrl('http://www.example.com/images/product-abc-2.jpg')
 		->setPriceVat(5)
 		->setDeliveryDate(0)
 		->setEan('6417182041488')
 		->setGroupId('AB12345')
+		->setManufacturer('Adidas')
 		->addParameter('barva', 'modrá')
 		->addParameter('velikost', 'XXL');
 
@@ -59,10 +63,14 @@ test(function () {
 		'<DESCRIPTION>Lorem ipsum dolor sit amet</DESCRIPTION>',
 		'<CATEGORYTEXT>Glami.cz | Oblečení</CATEGORYTEXT>',
 		'<URL>http://www.example.com/product-abc/</URL>',
+		'<URL_SIZE>http://www.example.com/product-abc/?size=41</URL_SIZE>',
 		'<IMGURL>http://www.example.com/images/product-abc.jpg</IMGURL>',
+		'<IMGURL_ALTERNATIVE>http://www.example.com/images/product-abc-1.jpg</IMGURL_ALTERNATIVE>',
+		'<IMGURL_ALTERNATIVE>http://www.example.com/images/product-abc-2.jpg</IMGURL_ALTERNATIVE>',
 		'<PRICE_VAT>5.00</PRICE_VAT>',
 		'<DELIVERY_DATE>0</DELIVERY_DATE>',
 		'<ITEMGROUP_ID>AB12345</ITEMGROUP_ID>',
+		'<MANUFACTURER>Adidas</MANUFACTURER>',
 		'<PARAM>',
 		'<PARAM_NAME>barva</PARAM_NAME>',
 		'<VAL>modrá</VAL>',

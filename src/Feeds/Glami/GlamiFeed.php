@@ -76,14 +76,25 @@
 				'DESCRIPTION' => $item->getDescription(),
 				'CATEGORYTEXT' => $item->getCategoryText(),
 				'URL' => $item->getUrl(),
+				'URL_SIZE' => $item->getUrlSize(),
 				'IMGURL' => $item->getImageUrl(),
+			]);
 
+			foreach ($item->getAlternativeImageUrls() as $alternativeImageUrl) {
+				Helpers::writeXml($output, [
+					'IMGURL_ALTERNATIVE' => $alternativeImageUrl,
+				]);
+			}
+
+			Helpers::writeXml($output, [
 				// price & availability
 				'PRICE_VAT' => $item->getPriceVat(),
 				'DELIVERY_DATE' => $item->getDeliveryDate(),
 
 				// group ID
 				'ITEMGROUP_ID' => $item->getGroupId(),
+
+				'MANUFACTURER' => $item->getManufacturer(),
 			]);
 
 			foreach ($item->getParameters() as $parameter) {
