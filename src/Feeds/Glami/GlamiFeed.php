@@ -112,5 +112,17 @@
 					],
 				]);
 			}
+
+			foreach ($item->getDeliveries() as $delivery) {
+				Helpers::writeXml($output, [
+					'DELIVERY' => [
+						'content' => [
+							'DELIVERY_ID' => $delivery->getId(),
+							'DELIVERY_PRICE' => $delivery->getPrice(),
+							'DELIVERY_PRICE_COD' => $delivery->getPriceCod(),
+						],
+					],
+				]);
+			}
 		}
 	}

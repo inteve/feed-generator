@@ -53,6 +53,9 @@
 		/** @var string|NULL */
 		private $groupId;
 
+		/** @var GlamiItemDelivery[] */
+		private $deliveries = [];
+
 
 		/**
 		 * @return string|int|NULL
@@ -337,6 +340,28 @@
 
 
 		/**
+		 * @return GlamiItemDelivery[]
+		 */
+		public function getDeliveries()
+		{
+			return $this->deliveries;
+		}
+
+
+		/**
+		 * @param  string
+		 * @param  number
+		 * @param  number|NULL
+		 * @return static
+		 */
+		public function addDelivery($id, $price, $priceCod = NULL)
+		{
+			$this->deliveries[] = new GlamiItemDelivery($id, $price, $priceCod);
+			return $this;
+		}
+
+
+		/**
 		 * @param  string
 		 * @return GlamiItemParameter|NULL
 		 */
@@ -377,9 +402,20 @@
 		 * @param  string
 		 * @return string
 		 */
-		protected function formatPrice($price)
+		public static function formatPrice($price)
 		{
 			return number_format($price, 2, '.', '');
+		}
+
+
+		/**
+		 * @param  string|float|int
+		 * @param  string
+		 * @return string
+		 */
+		public static function formatPriceInt($price)
+		{
+			return number_format($price, 0, '.', '');
 		}
 
 

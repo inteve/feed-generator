@@ -32,7 +32,9 @@ test(function () {
 		->setGroupId('AB12345')
 		->setManufacturer('Adidas')
 		->addParameter('barva', 'modrá')
-		->addParameter('velikost', 'XXL');
+		->addParameter('velikost', 'XXL')
+		->addDelivery('PPL', 69)
+		->addDelivery('CPOST', 59, 99);
 
 	$itemsGroup->addItem($groupItem);
 	$items[] = $itemsGroup;
@@ -79,6 +81,15 @@ test(function () {
 		'<PARAM_NAME>velikost</PARAM_NAME>',
 		'<VAL>XXL</VAL>',
 		'</PARAM>',
+		'<DELIVERY>',
+		'<DELIVERY_ID>PPL</DELIVERY_ID>',
+		'<DELIVERY_PRICE>69</DELIVERY_PRICE>',
+		'</DELIVERY>',
+		'<DELIVERY>',
+		'<DELIVERY_ID>CPOST</DELIVERY_ID>',
+		'<DELIVERY_PRICE>59</DELIVERY_PRICE>',
+		'<DELIVERY_PRICE_COD>99</DELIVERY_PRICE_COD>',
+		'</DELIVERY>',
 		'</SHOPITEM>',
 
 		'<SHOPITEM>',
