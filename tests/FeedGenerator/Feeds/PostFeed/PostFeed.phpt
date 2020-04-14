@@ -29,6 +29,7 @@ test(function () {
 	$groupItem = new PostFeedItem(1, 'Title', new DateTime('2016-02-06 18:00:00+0200', new DateTimeZone('UTC')));
 
 	$itemsGroup->addItem($groupItem);
+	$itemsGroup->addItem($groupItem);
 	$items[] = $itemsGroup;
 	$items[] = NULL;
 
@@ -47,6 +48,11 @@ test(function () {
 
 	Assert::same(implode("\n", [
 		'[',
+		Json::encode([
+			'id' => 1,
+			'title' => 'Title',
+			'date' => '2016-02-06 16:00:00',
+		]) . ',',
 		Json::encode([
 			'id' => 1,
 			'title' => 'Title',

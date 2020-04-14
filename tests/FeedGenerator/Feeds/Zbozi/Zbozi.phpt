@@ -30,6 +30,7 @@ test(function () {
 		->addParameter('weight', 10, 'kg');
 
 	$itemsGroup->addItem($groupItem);
+	$itemsGroup->addItem($groupItem);
 	$items[] = $itemsGroup;
 	$items[] = NULL;
 
@@ -50,6 +51,30 @@ test(function () {
 	Assert::same(implode("\n", [
 		'<?xml version="1.0" encoding="utf-8"?>',
 		'<SHOP xmlns="http://www.zbozi.cz/ns/offer/1.0">',
+		'<SHOPITEM>',
+		'<ITEM_ID>001</ITEM_ID>',
+		'<PRODUCTNAME>Product ABC</PRODUCTNAME>',
+		'<DESCRIPTION>Lorem ipsum dolor sit amet</DESCRIPTION>',
+		'<URL>http://www.example.com/product-abc/</URL>',
+		'<IMGURL>http://www.example.com/images/product-abc.jpg</IMGURL>',
+		'<PRICE_VAT>5.00</PRICE_VAT>',
+		'<DELIVERY_DATE>0</DELIVERY_DATE>',
+		'<ITEMGROUP_ID>AB12345</ITEMGROUP_ID>',
+		'<PARAM>',
+		'<PARAM_NAME>color</PARAM_NAME>',
+		'<VAL>red</VAL>',
+		'</PARAM>',
+		'<PARAM>',
+		'<PARAM_NAME>size</PARAM_NAME>',
+		'<VAL>XXL</VAL>',
+		'</PARAM>',
+		'<PARAM>',
+		'<PARAM_NAME>weight</PARAM_NAME>',
+		'<VAL>10</VAL>',
+		'<UNIT>kg</UNIT>',
+		'</PARAM>',
+		'</SHOPITEM>',
+
 		'<SHOPITEM>',
 		'<ITEM_ID>001</ITEM_ID>',
 		'<PRODUCTNAME>Product ABC</PRODUCTNAME>',

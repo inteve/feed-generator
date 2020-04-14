@@ -46,8 +46,6 @@
 				} else {
 					$this->generateItem($item, $output);
 				}
-
-				$output->output("</SHOPITEM>\n");
 			}
 
 			$output->output('</SHOP>');
@@ -124,5 +122,7 @@
 					],
 				]);
 			}
+
+			$output->output("</SHOPITEM>\n");
 		}
 	}

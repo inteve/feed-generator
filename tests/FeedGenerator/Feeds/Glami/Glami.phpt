@@ -37,6 +37,7 @@ test(function () {
 		->addDelivery('CPOST', 59, 99);
 
 	$itemsGroup->addItem($groupItem);
+	$itemsGroup->addItem($groupItem);
 	$items[] = $itemsGroup;
 	$items[] = NULL;
 
@@ -58,6 +59,40 @@ test(function () {
 	Assert::same(implode("\n", [
 		'<?xml version="1.0" encoding="utf-8"?>',
 		'<SHOP>',
+		'<SHOPITEM>',
+		'<ITEM_ID>001</ITEM_ID>',
+		'<EAN>6417182041488</EAN>',
+		'<PRODUCTNAME>Product ABC</PRODUCTNAME>',
+		'<DESCRIPTION>Lorem ipsum dolor sit amet</DESCRIPTION>',
+		'<CATEGORYTEXT>Glami.cz | Oblečení</CATEGORYTEXT>',
+		'<URL>http://www.example.com/product-abc/</URL>',
+		'<URL_SIZE>http://www.example.com/product-abc/?size=41</URL_SIZE>',
+		'<IMGURL>http://www.example.com/images/product-abc.jpg</IMGURL>',
+		'<IMGURL_ALTERNATIVE>http://www.example.com/images/product-abc-1.jpg</IMGURL_ALTERNATIVE>',
+		'<IMGURL_ALTERNATIVE>http://www.example.com/images/product-abc-2.jpg</IMGURL_ALTERNATIVE>',
+		'<PRICE_VAT>5.00</PRICE_VAT>',
+		'<DELIVERY_DATE>0</DELIVERY_DATE>',
+		'<ITEMGROUP_ID>AB12345</ITEMGROUP_ID>',
+		'<MANUFACTURER>Adidas</MANUFACTURER>',
+		'<PARAM>',
+		'<PARAM_NAME>barva</PARAM_NAME>',
+		'<VAL>modrá</VAL>',
+		'</PARAM>',
+		'<PARAM>',
+		'<PARAM_NAME>velikost</PARAM_NAME>',
+		'<VAL>XXL</VAL>',
+		'</PARAM>',
+		'<DELIVERY>',
+		'<DELIVERY_ID>PPL</DELIVERY_ID>',
+		'<DELIVERY_PRICE>69</DELIVERY_PRICE>',
+		'</DELIVERY>',
+		'<DELIVERY>',
+		'<DELIVERY_ID>CPOST</DELIVERY_ID>',
+		'<DELIVERY_PRICE>59</DELIVERY_PRICE>',
+		'<DELIVERY_PRICE_COD>99</DELIVERY_PRICE_COD>',
+		'</DELIVERY>',
+		'</SHOPITEM>',
+
 		'<SHOPITEM>',
 		'<ITEM_ID>001</ITEM_ID>',
 		'<EAN>6417182041488</EAN>',

@@ -159,8 +159,6 @@
 				} else {
 					$this->generateItem($item, $output);
 				}
-
-				$output->output("</entry>\n");
 			}
 
 			$output->output('</feed>');
@@ -225,5 +223,7 @@
 				// identifiers
 				'g:identifier_exists' => !$item->hasIdentifiers() ? 'no' : NULL,
 			]);
+
+			$output->output("</entry>\n");
 		}
 	}

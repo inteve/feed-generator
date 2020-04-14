@@ -34,6 +34,7 @@ test(function () {
 		->setShippingLabel('Only FedEx');
 
 	$itemsGroup->addItem($groupItem);
+	$itemsGroup->addItem($groupItem);
 	$feed->setItems([$itemsGroup, NULL]);
 	$feed->generate($output);
 
@@ -48,6 +49,24 @@ test(function () {
 		'<author>',
 		'<name>Example.com</name>',
 		'</author>',
+		'<entry>',
+		'<g:id>001</g:id>',
+		'<g:title>Product ABC</g:title>',
+		'<g:description>Lorem ipsum dolor sit amet</g:description>',
+		'<g:link>http://www.example.com/product-abc/</g:link>',
+		'<g:image_link>http://www.example.com/images/product-abc.jpg</g:image_link>',
+		'<g:availability>in stock</g:availability>',
+		'<g:price>5.00 USD</g:price>',
+		'<g:condition>new</g:condition>',
+		'<g:adult>no</g:adult>',
+		'<g:color>red</g:color>',
+		'<g:gender>male</g:gender>',
+		'<g:size>XXL</g:size>',
+		'<g:item_group_id>AB12345</g:item_group_id>',
+		'<g:shipping>10.00 USD</g:shipping>',
+		'<g:shipping_label>Only FedEx</g:shipping_label>',
+		'<g:identifier_exists>no</g:identifier_exists>',
+		'</entry>',
 		'<entry>',
 		'<g:id>001</g:id>',
 		'<g:title>Product ABC</g:title>',
