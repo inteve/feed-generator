@@ -463,7 +463,9 @@
 		{
 			Helpers::assert(isset($this->id), 'Missing item ID, call $item->setId().');
 			Helpers::assert(isset($this->title), 'Missing item title, call $item->setTitle().');
+			Helpers::assert(strlen($this->title) <= 150, 'Title has max 150 characters.');
 			Helpers::assert(isset($this->description), 'Missing item description, call $item->setDescription().');
+            Helpers::assert(strlen($this->description) <= 5000, 'Description has max 150 characters.');
 			Helpers::assert(isset($this->url), 'Missing item URL, call $item->setUrl().');
 			Helpers::assert(isset($this->imageUrl), 'Missing item image URL, call $item->setImageUrl().');
 			Helpers::assert(isset($this->price), 'Missing item price, call $item->setPrice().');
