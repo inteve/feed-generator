@@ -6,7 +6,6 @@
 	use Inteve\FeedGenerator\IFeedItem;
 	use Inteve\FeedGenerator\InvalidArgumentException;
 	use Inteve\FeedGenerator\Utils\Helpers;
-	use Nette\Utils\Validators;
 
 
 	class GoogleMerchantItem implements IFeedItem
