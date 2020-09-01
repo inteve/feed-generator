@@ -6,6 +6,7 @@
 	use Inteve\FeedGenerator\IFeedItem;
 	use Inteve\FeedGenerator\InvalidArgumentException;
 	use Inteve\FeedGenerator\Utils\Helpers;
+	use Nette\Utils\Strings;
 
 
 	class GoogleMerchantItem implements IFeedItem
@@ -67,6 +68,14 @@
 		/** @var string|NULL */
 		private $shippingLabel;
 
+		/** @var string|NULL */
+		private $brand;
+
+		/** @var int|NULL */
+		private $gtin;
+
+		/** @var string|NULL */
+		private $mpn;
 
 		/**
 		 * @return string|int
@@ -348,6 +357,7 @@
 
 		/**
 		 * @param  string
+		 * @param  string
 		 * @return static
 		 */
 		public function setShipping($price, $currency)
@@ -378,11 +388,71 @@
 
 
 		/**
+		 * @return string|NULL
+		 */
+		public function getBrand()
+		{
+			return $this->brand;
+		}
+
+
+		/**
+		 * @param  string|NULL $brand
+		 * @return static
+		 */
+		public function setBrand($brand)
+		{
+			$this->brand = $brand;
+			return $this;
+		}
+
+
+		/**
+		 * @return int|NULL
+		 */
+		public function getGtin()
+		{
+			return $this->gtin;
+		}
+
+
+		/**
+		 * @param  int|NULL $gtin
+		 * @return static
+		 */
+		public function setGtin($gtin)
+		{
+			$this->gtin = $gtin;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getMpn()
+		{
+			return $this->mpn;
+		}
+
+
+		/**
+		 * @param  string|NULL $mpn
+		 * @return static
+		 */
+		public function setMpn($mpn)
+		{
+			$this->mpn = $mpn;
+			return $this;
+		}
+
+
+		/**
 		 * @return bool
 		 */
 		public function hasIdentifiers()
 		{
-			return FALSE;
+			return $this->getGtin() !== NULL;
 		}
 
 
@@ -394,7 +464,9 @@
 		{
 			Helpers::assert(isset($this->id), 'Missing item ID, call $item->setId().');
 			Helpers::assert(isset($this->title), 'Missing item title, call $item->setTitle().');
+			Helpers::assert(Strings::length($this->title) <= 150, 'Title has max 150 characters.');
 			Helpers::assert(isset($this->description), 'Missing item description, call $item->setDescription().');
+			Helpers::assert(Strings::length($this->description) <= 5000, 'Description has max 5000 characters.');
 			Helpers::assert(isset($this->url), 'Missing item URL, call $item->setUrl().');
 			Helpers::assert(isset($this->imageUrl), 'Missing item image URL, call $item->setImageUrl().');
 			Helpers::assert(isset($this->price), 'Missing item price, call $item->setPrice().');

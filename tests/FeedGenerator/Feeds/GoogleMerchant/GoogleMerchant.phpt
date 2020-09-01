@@ -4,7 +4,6 @@ use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantFeed;
 use Inteve\FeedGenerator\Feeds\GoogleMerchant\GoogleMerchantItem;
 use Inteve\FeedGenerator\ItemsGroup;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
-use Nette\Utils\Json;
 use Tester\Assert;
 
 require __DIR__ . '/../../../bootstrap.php';
@@ -26,6 +25,7 @@ test(function () {
 		->setUrl('http://www.example.com/product-abc/')
 		->setImageUrl('http://www.example.com/images/product-abc.jpg')
 		->setPrice(5, 'USD')
+		->setBrand('Brand')
 		->setGroupId('AB12345')
 		->setColor('red')
 		->setGender('male')
@@ -57,6 +57,8 @@ test(function () {
 		'<g:image_link>http://www.example.com/images/product-abc.jpg</g:image_link>',
 		'<g:availability>in stock</g:availability>',
 		'<g:price>5.00 USD</g:price>',
+		'<g:brand>Brand</g:brand>',
+		'<g:identifier_exists>no</g:identifier_exists>',
 		'<g:condition>new</g:condition>',
 		'<g:adult>no</g:adult>',
 		'<g:color>red</g:color>',
@@ -65,7 +67,6 @@ test(function () {
 		'<g:item_group_id>AB12345</g:item_group_id>',
 		'<g:shipping>10.00 USD</g:shipping>',
 		'<g:shipping_label>Only FedEx</g:shipping_label>',
-		'<g:identifier_exists>no</g:identifier_exists>',
 		'</entry>',
 		'<entry>',
 		'<g:id>001</g:id>',
@@ -75,6 +76,8 @@ test(function () {
 		'<g:image_link>http://www.example.com/images/product-abc.jpg</g:image_link>',
 		'<g:availability>in stock</g:availability>',
 		'<g:price>5.00 USD</g:price>',
+		'<g:brand>Brand</g:brand>',
+		'<g:identifier_exists>no</g:identifier_exists>',
 		'<g:condition>new</g:condition>',
 		'<g:adult>no</g:adult>',
 		'<g:color>red</g:color>',
@@ -83,7 +86,6 @@ test(function () {
 		'<g:item_group_id>AB12345</g:item_group_id>',
 		'<g:shipping>10.00 USD</g:shipping>',
 		'<g:shipping_label>Only FedEx</g:shipping_label>',
-		'<g:identifier_exists>no</g:identifier_exists>',
 		'</entry>',
 		'</feed>',
 		'',
