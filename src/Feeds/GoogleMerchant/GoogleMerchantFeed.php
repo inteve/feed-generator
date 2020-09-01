@@ -206,6 +206,12 @@
 				'g:availability' => $item->getAvailability(),
 				'g:price' => $item->getPrice(),
 
+				// product identifiers
+                'g:brand' => $item->getBrand(),
+				'g:gtin' => $item->getGtin(),
+				'g:mpn' => $item->getMpn(),
+                'g:identifier_exists' => !$item->hasIdentifiers() ? 'no' : NULL,
+
 				// features
 				'g:condition' => $item->getCondition(),
 				'g:adult' => $item->isAdult() ? 'yes' : 'no',
@@ -219,9 +225,6 @@
 				// shipping
 				'g:shipping' => $item->getShipping(),
 				'g:shipping_label' => $item->getShippingLabel(),
-
-				// identifiers
-				'g:identifier_exists' => !$item->hasIdentifiers() ? 'no' : NULL,
 			]);
 
 			$output->output("</entry>\n");

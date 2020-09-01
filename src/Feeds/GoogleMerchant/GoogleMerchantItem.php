@@ -67,6 +67,14 @@
 		/** @var string|NULL */
 		private $shippingLabel;
 
+		/** @var string|NULL */
+		private $brand;
+
+        /** @var int|NULL */
+		private $gtin;
+
+		/** @var string|NULL */
+		private $mpn;
 
 		/**
 		 * @return string|int
@@ -377,12 +385,72 @@
 		}
 
 
+        /**
+         * @return string|NULL
+         */
+		public function getBrand()
+        {
+            return $this->brand;
+        }
+
+
+        /**
+         * @param string|NULL $brand
+         * @return $this
+         */
+        public function setBrand($brand)
+        {
+            $this->brand = $brand;
+            return $this;
+        }
+
+
+        /**
+         * @return int|NULL
+         */
+        public function getGtin()
+        {
+            return $this->gtin;
+        }
+
+
+        /**
+         * @param int|NULL $gtin
+         * @return $this
+         */
+        public function setGtin($gtin)
+        {
+            $this->gtin = $gtin;
+            return $this;
+        }
+
+
+        /**
+         * @return string|NULL
+         */
+        public function getMpn()
+        {
+            return $this->mpn;
+        }
+
+
+        /**
+         * @param string|NULL $mpn
+         * @return $this
+         */
+        public function setMpn($mpn)
+        {
+            $this->mpn = $mpn;
+            return $this;
+        }
+
+
 		/**
 		 * @return bool
 		 */
 		public function hasIdentifiers()
 		{
-			return FALSE;
+            return $this->getGtin() !== NULL;
 		}
 
 
