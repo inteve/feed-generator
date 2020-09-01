@@ -355,7 +355,8 @@
 
 
 		/**
-		 * @param  string
+		 * @param string
+         * @param string
 		 * @return static
 		 */
 		public function setShipping($price, $currency)
