@@ -70,7 +70,7 @@
 		/** @var string|NULL */
 		private $brand;
 
-        /** @var int|NULL */
+		/** @var int|NULL */
 		private $gtin;
 
 		/** @var string|NULL */
@@ -356,7 +356,7 @@
 
 		/**
 		 * @param string
-         * @param string
+		 * @param string
 		 * @return static
 		 */
 		public function setShipping($price, $currency)
@@ -386,64 +386,64 @@
 		}
 
 
-        /**
-         * @return string|NULL
-         */
+		/**
+		 * @return string|NULL
+		 */
 		public function getBrand()
-        {
-            return $this->brand;
-        }
+		{
+			return $this->brand;
+		}
 
 
-        /**
-         * @param string|NULL $brand
-         * @return $this
-         */
-        public function setBrand($brand)
-        {
-            $this->brand = $brand;
-            return $this;
-        }
+		/**
+		 * @param string|NULL $brand
+		 * @return $this
+		 */
+		public function setBrand($brand)
+		{
+			$this->brand = $brand;
+			return $this;
+		}
 
 
-        /**
-         * @return int|NULL
-         */
-        public function getGtin()
-        {
-            return $this->gtin;
-        }
+		/**
+		 * @return int|NULL
+		 */
+		public function getGtin()
+		{
+			return $this->gtin;
+		}
 
 
-        /**
-         * @param int|NULL $gtin
-         * @return $this
-         */
-        public function setGtin($gtin)
-        {
-            $this->gtin = $gtin;
-            return $this;
-        }
+		/**
+		 * @param int|NULL $gtin
+		 * @return $this
+		 */
+		public function setGtin($gtin)
+		{
+			$this->gtin = $gtin;
+			return $this;
+		}
 
 
-        /**
-         * @return string|NULL
-         */
-        public function getMpn()
-        {
-            return $this->mpn;
-        }
+		/**
+		 * @return string|NULL
+		 */
+		public function getMpn()
+		{
+			return $this->mpn;
+		}
 
 
-        /**
-         * @param string|NULL $mpn
-         * @return $this
-         */
-        public function setMpn($mpn)
-        {
-            $this->mpn = $mpn;
-            return $this;
-        }
+		/**
+		 * @param string|NULL $mpn
+		 * @return $this
+		 */
+		public function setMpn($mpn)
+		{
+			$this->mpn = $mpn;
+			return $this;
+		}
 
 
 		/**
@@ -451,7 +451,7 @@
 		 */
 		public function hasIdentifiers()
 		{
-            return $this->getGtin() !== NULL;
+			return $this->getGtin() !== NULL;
 		}
 
 
@@ -465,7 +465,7 @@
 			Helpers::assert(isset($this->title), 'Missing item title, call $item->setTitle().');
 			Helpers::assert(strlen($this->title) <= 150, 'Title has max 150 characters.');
 			Helpers::assert(isset($this->description), 'Missing item description, call $item->setDescription().');
-            Helpers::assert(strlen($this->description) <= 5000, 'Description has max 150 characters.');
+			Helpers::assert(strlen($this->description) <= 5000, 'Description has max 150 characters.');
 			Helpers::assert(isset($this->url), 'Missing item URL, call $item->setUrl().');
 			Helpers::assert(isset($this->imageUrl), 'Missing item image URL, call $item->setImageUrl().');
 			Helpers::assert(isset($this->price), 'Missing item price, call $item->setPrice().');

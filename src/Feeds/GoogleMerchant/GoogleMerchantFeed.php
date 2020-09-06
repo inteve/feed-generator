@@ -207,10 +207,10 @@
 				'g:price' => $item->getPrice(),
 
 				// product identifiers
-                'g:brand' => $item->getBrand(),
+				'g:brand' => $item->getBrand(),
 				'g:gtin' => $item->getGtin(),
 				'g:mpn' => $item->getMpn(),
-                'g:identifier_exists' => !$item->hasIdentifiers() ? 'no' : NULL,
+				'g:identifier_exists' => !$item->hasIdentifiers() ? 'no' : NULL,
 
 				// features
 				'g:condition' => $item->getCondition(),
