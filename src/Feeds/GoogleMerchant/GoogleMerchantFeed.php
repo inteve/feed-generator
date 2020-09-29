@@ -222,6 +222,9 @@
 				// group ID
 				'g:item_group_id' => $item->getGroupId(),
 
+				// categories
+				'g:product_type' => $item->getProductType(),
+
 				// shipping
 				'g:shipping' => $item->getShipping(),
 				'g:shipping_label' => $item->getShippingLabel(),
