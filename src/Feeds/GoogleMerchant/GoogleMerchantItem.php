@@ -77,6 +77,9 @@
 		/** @var string|NULL */
 		private $mpn;
 
+		/** @var string|NULL */
+		private $productType;
+
 		/**
 		 * @return string|int
 		 */
@@ -448,6 +451,26 @@
 
 
 		/**
+		 * @param string|NULL $productType
+		 * @return static
+		 */
+		public function setProductType($productType)
+		{
+			$this->productType = $productType;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getProductType()
+		{
+			return $this->productType;
+		}
+
+
+		/**
 		 * @return bool
 		 */
 		public function hasIdentifiers()
@@ -470,6 +493,7 @@
 			Helpers::assert(isset($this->url), 'Missing item URL, call $item->setUrl().');
 			Helpers::assert(isset($this->imageUrl), 'Missing item image URL, call $item->setImageUrl().');
 			Helpers::assert(isset($this->price), 'Missing item price, call $item->setPrice().');
+			Helpers::assert($this->productType === NULL || Strings::length($this->productType) <= 750, 'Product type has max 750 characters.');
 		}
 
 

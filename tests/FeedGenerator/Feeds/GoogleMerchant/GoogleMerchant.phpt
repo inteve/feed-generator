@@ -27,6 +27,7 @@ test(function () {
 		->setPrice(5, 'USD')
 		->setBrand('Brand')
 		->setGroupId('AB12345')
+		->setProductType('Category')
 		->setColor('red')
 		->setGender('male')
 		->setSize('XXL')
@@ -65,6 +66,7 @@ test(function () {
 		'<g:gender>male</g:gender>',
 		'<g:size>XXL</g:size>',
 		'<g:item_group_id>AB12345</g:item_group_id>',
+		'<g:product_type>Category</g:product_type>',
 		'<g:shipping>10.00 USD</g:shipping>',
 		'<g:shipping_label>Only FedEx</g:shipping_label>',
 		'</entry>',
@@ -84,6 +86,7 @@ test(function () {
 		'<g:gender>male</g:gender>',
 		'<g:size>XXL</g:size>',
 		'<g:item_group_id>AB12345</g:item_group_id>',
+		'<g:product_type>Category</g:product_type>',
 		'<g:shipping>10.00 USD</g:shipping>',
 		'<g:shipping_label>Only FedEx</g:shipping_label>',
 		'</entry>',
