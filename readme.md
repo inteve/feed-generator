@@ -15,7 +15,7 @@
 composer require inteve/feed-generator
 ```
 
-Feed Generator requires PHP 5.3.0 or later.
+Feed Generator requires PHP 5.6.0 or later.
 
 
 ## Usage
