@@ -40,6 +40,7 @@ test(function () {
 		->setDescription('Lorem ipsum dolor sit amet')
 		->setUrl('http://www.example.com/product-def/')
 		->setImageUrl('http://www.example.com/images/product-def.jpg')
+		->setCategoryText('Foto | Fotoaparáty a videokamery | Blesky')
 		->setPrice(10.10)
 		->setDeliveryDate(new \DateTimeImmutable('2016-02-06 18:00:00+0200', new \DateTimeZone('UTC')));
 
@@ -105,6 +106,7 @@ test(function () {
 		'<DESCRIPTION>Lorem ipsum dolor sit amet</DESCRIPTION>',
 		'<URL>http://www.example.com/product-def/</URL>',
 		'<IMGURL>http://www.example.com/images/product-def.jpg</IMGURL>',
+		'<CATEGORYTEXT>Foto | Fotoaparáty a videokamery | Blesky</CATEGORYTEXT>',
 		'<PRICE_VAT>10.10</PRICE_VAT>',
 		'<DELIVERY_DATE>2016-02-06</DELIVERY_DATE>',
 		'</SHOPITEM>',

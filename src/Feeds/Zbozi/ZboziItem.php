@@ -38,6 +38,9 @@
 		private $imageUrl;
 
 		/** @var string|NULL */
+		private $categoryText;
+
+		/** @var string|NULL */
 		private $groupId;
 
 
@@ -204,6 +207,26 @@
 		public function setImageUrl($imageUrl)
 		{
 			$this->imageUrl = $imageUrl;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getCategoryText()
+		{
+			return $this->categoryText;
+		}
+
+
+		/**
+		 * @param  string
+		 * @return static
+		 */
+		public function setCategoryText($categoryText)
+		{
+			$this->categoryText = $categoryText;
 			return $this;
 		}
 

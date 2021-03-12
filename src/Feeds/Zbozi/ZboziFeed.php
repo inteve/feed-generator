@@ -26,7 +26,7 @@
 		 */
 		public function generate(IOutput $output)
 		{
-			// https://napoveda.seznam.cz/cz/zbozi/specifikace-xml-pro-obchody/specifikace-xml-feedu/
+			// https://napoveda.zbozi.cz/xml-feed/specifikace/
 			$output->open();
 			$output->output('<?xml version="1.0" encoding="utf-8"?>');
 			$output->output("\n");
@@ -73,6 +73,7 @@
 				'DESCRIPTION' => $item->getDescription(),
 				'URL' => $item->getUrl(),
 				'IMGURL' => $item->getImageUrl(),
+				'CATEGORYTEXT' => $item->getCategoryText(),
 
 				// price & availability
 				'PRICE_VAT' => $item->getPrice(),
