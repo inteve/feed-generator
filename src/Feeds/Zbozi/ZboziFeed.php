@@ -74,6 +74,9 @@
 				'URL' => $item->getUrl(),
 				'IMGURL' => $item->getImageUrl(),
 				'CATEGORYTEXT' => $item->getCategoryText(),
+				'CUSTOM_LABEL_0' => $item->getCustomLabel(0),
+				'CUSTOM_LABEL_1' => $item->getCustomLabel(1),
+				'CUSTOM_LABEL_3' => $item->getCustomLabel(3),
 
 				// price & availability
 				'PRICE_VAT' => $item->getPrice(),

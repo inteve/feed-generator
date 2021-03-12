@@ -41,6 +41,9 @@ test(function () {
 		->setUrl('http://www.example.com/product-def/')
 		->setImageUrl('http://www.example.com/images/product-def.jpg')
 		->setCategoryText('Foto | Fotoaparáty a videokamery | Blesky')
+		->setCustomLabel(0, 'Letni akce')
+		->setCustomLabel(1, 'Vysoká prodejnost')
+		->setCustomLabel(3, 'Výprodej')
 		->setPrice(10.10)
 		->setDeliveryDate(new \DateTimeImmutable('2016-02-06 18:00:00+0200', new \DateTimeZone('UTC')));
 
@@ -107,6 +110,9 @@ test(function () {
 		'<URL>http://www.example.com/product-def/</URL>',
 		'<IMGURL>http://www.example.com/images/product-def.jpg</IMGURL>',
 		'<CATEGORYTEXT>Foto | Fotoaparáty a videokamery | Blesky</CATEGORYTEXT>',
+		'<CUSTOM_LABEL_0>Letni akce</CUSTOM_LABEL_0>',
+		'<CUSTOM_LABEL_1>Vysoká prodejnost</CUSTOM_LABEL_1>',
+		'<CUSTOM_LABEL_3>Výprodej</CUSTOM_LABEL_3>',
 		'<PRICE_VAT>10.10</PRICE_VAT>',
 		'<DELIVERY_DATE>2016-02-06</DELIVERY_DATE>',
 		'</SHOPITEM>',

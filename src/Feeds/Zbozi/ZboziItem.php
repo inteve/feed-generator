@@ -40,6 +40,9 @@
 		/** @var string|NULL */
 		private $categoryText;
 
+		/** @var array<int, string> */
+		private $customLabels;
+
 		/** @var string|NULL */
 		private $groupId;
 
@@ -227,6 +230,28 @@
 		public function setCategoryText($categoryText)
 		{
 			$this->categoryText = $categoryText;
+			return $this;
+		}
+
+
+		/**
+		 * @param  int
+		 * @return string|NULL
+		 */
+		public function getCustomLabel($id)
+		{
+			return isset($this->customLabels[$id]) ? $this->customLabels[$id] : NULL;
+		}
+
+
+		/**
+		 * @param  int
+		 * @param  string
+		 * @return static
+		 */
+		public function setCustomLabel($id, $value)
+		{
+			$this->customLabels[$id] = $value;
 			return $this;
 		}
 
