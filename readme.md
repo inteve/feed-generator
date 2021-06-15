@@ -1,21 +1,16 @@
 
 # Feed Generator
 
-[![Build Status](https://travis-ci.org/inteve/feed-generator.svg?branch=master)](https://travis-ci.org/inteve/feed-generator)
-
-<a href="https://www.patreon.com/bePatron?u=9680759"><img src="https://c5.patreon.com/external/logo/become_a_patron_button.png" alt="Become a Patron!" height="35"></a>
-<a href="https://www.paypal.me/janpecha/1eur"><img src="https://buymecoffee.intm.org/img/button-paypal-white.png" alt="Buy me a coffee" height="35"></a>
-
 
 ## Installation
 
 [Download a latest package](https://github.com/inteve/feed-generator/releases) or use [Composer](http://getcomposer.org/):
 
 ```
-composer require inteve/feed-generator
+composer require spacek/feed-generator
 ```
 
-Feed Generator requires PHP 5.3.0 or later.
+Feed Generator requires PHP 7.4.0 or later.
 
 
 ## Usage
@@ -177,4 +172,5 @@ class FeedPresenter extends Nette\Application\UI\Presenter
 ------------------------------
 
 License: [New BSD License](license.md)
-<br>Author: Jan Pecha, https://www.janpecha.cz/
+<br>Original author: Jan Pecha, https://www.janpecha.cz/
+<br />Fork author: Jiri Spacek

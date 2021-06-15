@@ -1,7 +1,8 @@
 {
-	"name": "inteve/feed-generator",
+	"name": "spacek/feed-generator",
 	"description": "Feed generator",
 	"type": "library",
+	"version": "1.2",
 	"license": "BSD-3-Clause",
 	"authors": [
 		{
@@ -13,7 +14,7 @@
 		"classmap": ["src/"]
 	},
 	"require": {
-		"php": ">=5.6.0",
+		"php": ">=7.4",
 		"nette/utils": "^2.2"
 	},
 	"require-dev": {

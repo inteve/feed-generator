@@ -32,6 +32,9 @@
 		private $price;
 
 		/** @var string|NULL */
+		private $listPrice;
+
+		/** @var string|NULL */
 		private $deliveryDate;
 
 		/** @var ZboziItemParameter[] */
@@ -40,7 +43,10 @@
 		/** @var string|NULL */
 		private $imageUrl;
 
-		/** @var string|NULL */
+        /** @var array<int, string> */
+        private $customLabels;
+
+        /** @var string|NULL */
 		private $groupId;
 
 
@@ -157,6 +163,24 @@
 			return $this->price;
 		}
 
+		/**
+		 * @return string|NULL
+		 */
+		public function getListPrice()
+		{
+			return $this->listPrice;
+		}
+
+		/**
+		 * @param  string|float|int
+		 * @return self
+		 */
+		public function setListPrice($price)
+		{
+			$this->listPrice = $this->formatPrice($price);
+			return $this;
+		}
+
 
 		/**
 		 * @param  string|float|int
@@ -248,6 +272,28 @@
 			$this->ean = $ean;
 			return $this;
 		}
+
+
+        /**
+         * @param  int
+         * @return string|NULL
+         */
+        public function getCustomLabel($id)
+        {
+            return isset($this->customLabels[$id]) ? $this->customLabels[$id] : NULL;
+        }
+
+
+        /**
+         * @param  int
+         * @param  string
+         * @return static
+         */
+        public function setCustomLabel($id, $value)
+        {
+            $this->customLabels[$id] = $value;
+            return $this;
+        }
 
 
 		/**
