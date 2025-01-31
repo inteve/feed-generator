@@ -24,6 +24,8 @@ test(function () {
 		->setDescription('Lorem ipsum dolor sit amet')
 		->setUrl('http://www.example.com/product-abc/')
 		->setImageUrl('http://www.example.com/images/product-abc.jpg')
+		->addAlternativeImageUrl('http://www.example.com/images/product-abc-2.jpg')
+		->addAlternativeImageUrl('http://www.example.com/images/product-abc-3.jpg')
 		->setPrice(5, 'USD')
 		->setBrand('Brand')
 		->setGroupId('AB12345')
@@ -56,6 +58,8 @@ test(function () {
 		'<g:description>Lorem ipsum dolor sit amet</g:description>',
 		'<g:link>http://www.example.com/product-abc/</g:link>',
 		'<g:image_link>http://www.example.com/images/product-abc.jpg</g:image_link>',
+		'<g:additional_image_link>http://www.example.com/images/product-abc-2.jpg</g:additional_image_link>',
+		'<g:additional_image_link>http://www.example.com/images/product-abc-3.jpg</g:additional_image_link>',
 		'<g:availability>in stock</g:availability>',
 		'<g:price>5.00 USD</g:price>',
 		'<g:brand>Brand</g:brand>',
@@ -76,6 +80,8 @@ test(function () {
 		'<g:description>Lorem ipsum dolor sit amet</g:description>',
 		'<g:link>http://www.example.com/product-abc/</g:link>',
 		'<g:image_link>http://www.example.com/images/product-abc.jpg</g:image_link>',
+		'<g:additional_image_link>http://www.example.com/images/product-abc-2.jpg</g:additional_image_link>',
+		'<g:additional_image_link>http://www.example.com/images/product-abc-3.jpg</g:additional_image_link>',
 		'<g:availability>in stock</g:availability>',
 		'<g:price>5.00 USD</g:price>',
 		'<g:brand>Brand</g:brand>',

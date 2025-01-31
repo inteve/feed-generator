@@ -75,7 +75,15 @@
 				'CATEGORYTEXT' => $item->getCategoryText(),
 				'URL' => $item->getUrl(),
 				'IMGURL' => $item->getImageUrl(),
+			]);
 
+			foreach ($item->getAlternativeImageUrls() as $alternativeImageUrl) {
+				Helpers::writeXml($output, [
+					'IMGURL_ALTERNATIVE' => $alternativeImageUrl,
+				]);
+			}
+
+			Helpers::writeXml($output, [
 				// price & availability
 				'PRICE_VAT' => $item->getPrice(),
 				'DELIVERY_DATE' => $item->getDeliveryDate(),

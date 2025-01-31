@@ -22,6 +22,8 @@ test(function () {
 		->setDescription('Lorem ipsum dolor sit amet')
 		->setUrl('http://www.example.com/product-abc/')
 		->setImageUrl('http://www.example.com/images/product-abc.jpg')
+		->addAlternativeImageUrl('http://www.example.com/images/product-abc-2.jpg')
+		->addAlternativeImageUrl('http://www.example.com/images/product-abc-3.jpg')
 		->setPrice(5)
 		->setDeliveryDate(0)
 		->setGroupId('AB12345')
@@ -61,6 +63,8 @@ test(function () {
 		'<DESCRIPTION>Lorem ipsum dolor sit amet</DESCRIPTION>',
 		'<URL>http://www.example.com/product-abc/</URL>',
 		'<IMGURL>http://www.example.com/images/product-abc.jpg</IMGURL>',
+		'<IMGURL_ALTERNATIVE>http://www.example.com/images/product-abc-2.jpg</IMGURL_ALTERNATIVE>',
+		'<IMGURL_ALTERNATIVE>http://www.example.com/images/product-abc-3.jpg</IMGURL_ALTERNATIVE>',
 		'<PRICE_VAT>5.00</PRICE_VAT>',
 		'<DELIVERY_DATE>0</DELIVERY_DATE>',
 		'<ITEMGROUP_ID>AB12345</ITEMGROUP_ID>',
@@ -85,6 +89,8 @@ test(function () {
 		'<DESCRIPTION>Lorem ipsum dolor sit amet</DESCRIPTION>',
 		'<URL>http://www.example.com/product-abc/</URL>',
 		'<IMGURL>http://www.example.com/images/product-abc.jpg</IMGURL>',
+		'<IMGURL_ALTERNATIVE>http://www.example.com/images/product-abc-2.jpg</IMGURL_ALTERNATIVE>',
+		'<IMGURL_ALTERNATIVE>http://www.example.com/images/product-abc-3.jpg</IMGURL_ALTERNATIVE>',
 		'<PRICE_VAT>5.00</PRICE_VAT>',
 		'<DELIVERY_DATE>0</DELIVERY_DATE>',
 		'<ITEMGROUP_ID>AB12345</ITEMGROUP_ID>',

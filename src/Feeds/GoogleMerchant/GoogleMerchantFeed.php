@@ -201,7 +201,15 @@
 				'g:description' => $item->getDescription(),
 				'g:link' => $item->getUrl(),
 				'g:image_link' => $item->getImageUrl(),
+			]);
 
+			foreach ($item->getAlternativeImageUrls() as $alternativeImageUrl) {
+				Helpers::writeXml($output, [
+					'g:additional_image_link' => $alternativeImageUrl,
+				]);
+			}
+
+			Helpers::writeXml($output, [
 				// price & availability
 				'g:availability' => $item->getAvailability(),
 				'g:price' => $item->getPrice(),

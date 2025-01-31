@@ -73,6 +73,15 @@
 				'DESCRIPTION' => $item->getDescription(),
 				'URL' => $item->getUrl(),
 				'IMGURL' => $item->getImageUrl(),
+			]);
+
+			foreach ($item->getAlternativeImageUrls() as $alternativeImageUrl) {
+				Helpers::writeXml($output, [
+					'IMGURL_ALTERNATIVE' => $alternativeImageUrl,
+				]);
+			}
+
+			Helpers::writeXml($output, [
 				'CATEGORYTEXT' => $item->getCategoryText(),
 				'CUSTOM_LABEL_0' => $item->getCustomLabel(0),
 				'CUSTOM_LABEL_1' => $item->getCustomLabel(1),

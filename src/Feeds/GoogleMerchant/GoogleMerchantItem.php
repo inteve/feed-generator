@@ -38,6 +38,9 @@
 		/** @var string|NULL */
 		private $imageUrl;
 
+		/** @var string[] */
+		private $alternativeImageUrls = [];
+
 		/** @var string */
 		private $availability = self::AVAILABILITY_IN_STOCK;
 
@@ -177,6 +180,26 @@
 		public function setImageUrl($imageUrl)
 		{
 			$this->imageUrl = $imageUrl;
+			return $this;
+		}
+
+
+		/**
+		 * @return string[]
+		 */
+		public function getAlternativeImageUrls()
+		{
+			return $this->alternativeImageUrls;
+		}
+
+
+		/**
+		 * @param  string
+		 * @return static
+		 */
+		public function addAlternativeImageUrl($alternativeImageUrl)
+		{
+			$this->alternativeImageUrls[] = $alternativeImageUrl;
 			return $this;
 		}
 
