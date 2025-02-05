@@ -52,6 +52,9 @@
 		/** @var array<int, string> */
 		private $customLabels;
 
+		/** @var ZboziItemExtraMessage[] */
+		private $extraMessages = [];
+
 		/** @var string|NULL */
 		private $groupId;
 
@@ -321,6 +324,27 @@
 		public function setCustomLabel($id, $value)
 		{
 			$this->customLabels[$id] = $value;
+			return $this;
+		}
+
+
+		/**
+		 * @return ZboziItemExtraMessage[]
+		 */
+		public function getExtraMessages()
+		{
+			return $this->extraMessages;
+		}
+
+
+		/**
+		 * @param  string $type
+		 * @param  string|NULL $text
+		 * @return static
+		 */
+		public function addExtraMessage($type, $text = NULL)
+		{
+			$this->extraMessages[] = new ZboziItemExtraMessage($type, $text);
 			return $this;
 		}
 

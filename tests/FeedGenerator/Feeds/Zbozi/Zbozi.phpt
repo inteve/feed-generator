@@ -2,6 +2,7 @@
 
 use Inteve\FeedGenerator\Feeds\Zbozi\ZboziFeed;
 use Inteve\FeedGenerator\Feeds\Zbozi\ZboziItem;
+use Inteve\FeedGenerator\Feeds\Zbozi\ZboziItemExtraMessage;
 use Inteve\FeedGenerator\ItemsGroup;
 use Inteve\FeedGenerator\Outputs\MemoryOutput;
 use Nette\Utils\Json;
@@ -47,6 +48,8 @@ test(function () {
 		->setCustomLabel(0, 'Letni akce')
 		->setCustomLabel(1, 'Vysoká prodejnost')
 		->setCustomLabel(3, 'Výprodej')
+		->addExtraMessage(ZboziItemExtraMessage::Custom, 'My custom text')
+		->addExtraMessage(ZboziItemExtraMessage::PayLater)
 		->setPrice(10.10)
 		->setPriceBeforeDiscount(20.10)
 		->setDeliveryDate(new \DateTimeImmutable('2016-02-06 18:00:00+0200', new \DateTimeZone('UTC')));
@@ -125,6 +128,9 @@ test(function () {
 		'<PRICE_VAT>10.10</PRICE_VAT>',
 		'<PRICE_BEFORE_DISCOUNT>20.10</PRICE_BEFORE_DISCOUNT>',
 		'<DELIVERY_DATE>2016-02-06</DELIVERY_DATE>',
+		'<EXTRA_MESSAGE>custom</EXTRA_MESSAGE>',
+		'<CUSTOM_TEXT>My custom text</CUSTOM_TEXT>',
+		'<EXTRA_MESSAGE>pay_later</EXTRA_MESSAGE>',
 		'</SHOPITEM>',
 		'</SHOP>',
 		'',

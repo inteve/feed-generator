@@ -109,6 +109,16 @@
 				]);
 			}
 
+			foreach ($item->getExtraMessages() as $extraMessage) {
+				Helpers::writeXml($output, [
+					'EXTRA_MESSAGE' => $extraMessage->getType(),
+					[
+						'tag' => $extraMessage->getTextTag(),
+						'content' => $extraMessage->getText(),
+					],
+				]);
+			}
+
 			$output->output("</SHOPITEM>\n");
 		}
 	}
