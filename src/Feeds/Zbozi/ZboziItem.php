@@ -219,7 +219,9 @@
 		 */
 		public function setPriceBeforeDiscount($priceBeforeDiscount)
 		{
-			$this->priceBeforeDiscount = $this->formatPrice($priceBeforeDiscount);
+			$this->priceBeforeDiscount = $priceBeforeDiscount !== NULL
+				? $this->formatPrice($priceBeforeDiscount)
+				: NULL;
 			return $this;
 		}
 
