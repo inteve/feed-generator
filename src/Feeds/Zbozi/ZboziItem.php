@@ -20,6 +20,9 @@
 		private $productName;
 
 		/** @var string|NULL */
+		private $product;
+
+		/** @var string|NULL */
 		private $description;
 
 		/** @var string|NULL */
@@ -86,6 +89,26 @@
 		public function setProductName($productName)
 		{
 			$this->productName = $productName;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getProduct()
+		{
+			return $this->product;
+		}
+
+
+		/**
+		 * @param  string
+		 * @return static
+		 */
+		public function setProduct($product)
+		{
+			$this->product = $product;
 			return $this;
 		}
 

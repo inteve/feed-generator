@@ -39,6 +39,7 @@ test(function () {
 	$items[] = ZboziItem::create()
 		->setId('002')
 		->setProductName('Product DEF')
+		->setProduct('Product DEF Lorem ipsum')
 		->setDescription('Lorem ipsum dolor sit amet')
 		->setUrl('http://www.example.com/product-def/')
 		->setImageUrl('http://www.example.com/images/product-def.jpg')
@@ -112,6 +113,7 @@ test(function () {
 		'<SHOPITEM>',
 		'<ITEM_ID>002</ITEM_ID>',
 		'<PRODUCTNAME>Product DEF</PRODUCTNAME>',
+		'<PRODUCT>Product DEF Lorem ipsum</PRODUCT>',
 		'<DESCRIPTION>Lorem ipsum dolor sit amet</DESCRIPTION>',
 		'<URL>http://www.example.com/product-def/</URL>',
 		'<IMGURL>http://www.example.com/images/product-def.jpg</IMGURL>',

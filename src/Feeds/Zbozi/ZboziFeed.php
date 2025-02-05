@@ -70,6 +70,7 @@
 			Helpers::writeXml($output, [
 				'ITEM_ID' => $item->getId(),
 				'PRODUCTNAME' => $item->getProductName(),
+				'PRODUCT' => $item->getProduct(),
 				'DESCRIPTION' => $item->getDescription(),
 				'URL' => $item->getUrl(),
 				'IMGURL' => $item->getImageUrl(),
