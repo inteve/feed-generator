@@ -48,6 +48,7 @@ test(function () {
 		->setCustomLabel(1, 'Vysoká prodejnost')
 		->setCustomLabel(3, 'Výprodej')
 		->setPrice(10.10)
+		->setPriceBeforeDiscount(20.10)
 		->setDeliveryDate(new \DateTimeImmutable('2016-02-06 18:00:00+0200', new \DateTimeZone('UTC')));
 
 	$feed->setItems($items);
@@ -122,6 +123,7 @@ test(function () {
 		'<CUSTOM_LABEL_1>Vysoká prodejnost</CUSTOM_LABEL_1>',
 		'<CUSTOM_LABEL_3>Výprodej</CUSTOM_LABEL_3>',
 		'<PRICE_VAT>10.10</PRICE_VAT>',
+		'<PRICE_BEFORE_DISCOUNT>20.10</PRICE_BEFORE_DISCOUNT>',
 		'<DELIVERY_DATE>2016-02-06</DELIVERY_DATE>',
 		'</SHOPITEM>',
 		'</SHOP>',

@@ -32,6 +32,9 @@
 		private $price;
 
 		/** @var string|NULL */
+		private $priceBeforeDiscount;
+
+		/** @var string|NULL */
 		private $deliveryDate;
 
 		/** @var ZboziItemParameter[] */
@@ -194,6 +197,26 @@
 		public function setPrice($price)
 		{
 			$this->price = $this->formatPrice($price);
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getPriceBeforeDiscount()
+		{
+			return $this->priceBeforeDiscount;
+		}
+
+
+		/**
+		 * @param  string|float|int|NULL
+		 * @return static
+		 */
+		public function setPriceBeforeDiscount($priceBeforeDiscount)
+		{
+			$this->priceBeforeDiscount = $this->formatPrice($priceBeforeDiscount);
 			return $this;
 		}
 

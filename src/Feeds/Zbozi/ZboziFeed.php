@@ -90,6 +90,7 @@
 
 				// price & availability
 				'PRICE_VAT' => $item->getPrice(),
+				'PRICE_BEFORE_DISCOUNT' => $item->getPriceBeforeDiscount(),
 				'DELIVERY_DATE' => $item->getDeliveryDate(),
 
 				// group ID
