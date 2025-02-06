@@ -52,6 +52,9 @@
 		/** @var array<int, string> */
 		private $customLabels;
 
+		/** @var string|NULL */
+		private $manufacturer;
+
 		/** @var ZboziItemExtraMessage[] */
 		private $extraMessages = [];
 
@@ -326,6 +329,26 @@
 		public function setCustomLabel($id, $value)
 		{
 			$this->customLabels[$id] = $value;
+			return $this;
+		}
+
+
+		/**
+		 * @return string|NULL
+		 */
+		public function getManufacturer()
+		{
+			return $this->manufacturer;
+		}
+
+
+		/**
+		 * @param  string|NULL
+		 * @return static
+		 */
+		public function setManufacturer($manufacturer)
+		{
+			$this->manufacturer = $manufacturer;
 			return $this;
 		}
 

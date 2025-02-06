@@ -87,6 +87,7 @@
 				'CUSTOM_LABEL_0' => $item->getCustomLabel(0),
 				'CUSTOM_LABEL_1' => $item->getCustomLabel(1),
 				'CUSTOM_LABEL_3' => $item->getCustomLabel(3),
+				'MANUFACTURER' => $item->getManufacturer(),
 
 				// price & availability
 				'PRICE_VAT' => $item->getPrice(),

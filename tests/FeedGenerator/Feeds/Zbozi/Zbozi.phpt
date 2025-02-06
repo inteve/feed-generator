@@ -48,6 +48,7 @@ test(function () {
 		->setCustomLabel(0, 'Letni akce')
 		->setCustomLabel(1, 'Vysoká prodejnost')
 		->setCustomLabel(3, 'Výprodej')
+		->setManufacturer('Manufacturer XYZ')
 		->addExtraMessage(ZboziItemExtraMessage::Custom, 'My custom text')
 		->addExtraMessage(ZboziItemExtraMessage::PayLater)
 		->setPrice(10.10)
@@ -125,6 +126,7 @@ test(function () {
 		'<CUSTOM_LABEL_0>Letni akce</CUSTOM_LABEL_0>',
 		'<CUSTOM_LABEL_1>Vysoká prodejnost</CUSTOM_LABEL_1>',
 		'<CUSTOM_LABEL_3>Výprodej</CUSTOM_LABEL_3>',
+		'<MANUFACTURER>Manufacturer XYZ</MANUFACTURER>',
 		'<PRICE_VAT>10.10</PRICE_VAT>',
 		'<PRICE_BEFORE_DISCOUNT>20.10</PRICE_BEFORE_DISCOUNT>',
 		'<DELIVERY_DATE>2016-02-06</DELIVERY_DATE>',
